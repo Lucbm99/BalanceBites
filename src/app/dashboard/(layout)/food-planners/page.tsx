@@ -1,4 +1,4 @@
-import { PlannersList } from "../planners/planners-list";
+import { PlannersList } from "../../../../components/pages/dashboard/planners/planners-list";
 
 export default function DashboardFoodPlannersPage() {
     return (

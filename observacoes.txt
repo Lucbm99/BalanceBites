@@ -1,0 +1,6 @@
+pasta RESUMES (app) = pasta FOOD-PLANNERS
+
+pasta RESUMES (componentes) = pasta PLANNERS
+
+tudo o que tiver resume (new-resume-dialog)
+será igual a: new-planner-dialog

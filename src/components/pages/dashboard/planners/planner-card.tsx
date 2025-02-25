@@ -27,7 +27,7 @@ export const PlannerCardButton = ({ title, description, icon }: PlannerCardButto
 
 export const PlannerCard = () => {
     return (
-        <Link href="/dashboard/planners/example" className="block w-full">
+        <Link href="/dashboard/food-planners/example" className="block w-full">
             <PlannerCardButton 
                 title="Meu planejamento"
                 description="Última atualização há 22 minutos"
