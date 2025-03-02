@@ -24,8 +24,29 @@ export const PlannerPage = () => {
                 location: "",
                 phone: "",
                 website: "",
-            }
-        }
+            },
+            summary: "",
+            certifications: [],
+            educations: [],
+            experiences: [],
+            languages: [],
+            projects: [],
+            skills: [],
+            socialMedias: [
+                {
+                    icon: "", 
+                    name: "teste 1",
+                    url: "teste 1",
+                    username: "teste 1",
+                },
+                {
+                    icon: "", 
+                    name: "teste 2",
+                    url: "teste 2",
+                    username: "teste 2",
+                }
+            ],
+        },
     }
     const methods = useForm<PlannerData>({ defaultValues });
 

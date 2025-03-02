@@ -12,7 +12,6 @@ type PlannerInfosData = {
     location: string;
 }
 
-
 type PlannerSocialMediaData = {
     name: string;
     username: string;
