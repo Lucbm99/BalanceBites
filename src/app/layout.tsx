@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/components/shared/theme-provider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Cabin, Merriweather_Sans } from "next/font/google";
+import { Toaster } from "sonner";
 import "../styles/globals.css";
 
 const fontSans = Merriweather_Sans({ subsets: ["latin"], variable: "--font-sans" });
@@ -31,6 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
       </ThemeProvider>
       </body>
     </html>
