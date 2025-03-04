@@ -80,7 +80,36 @@ type PlannerContentData = {
     projects: Partial<PlannerProjectData>[];
 }
 
+type PlannerLayoutSection = {
+    id?: string;
+    key: PlannerSections;
+}
+
+type PlannerLanguages = "english" | "spanish" | "french" | "german" | "italian" | "portuguese";
+
+type PlannerStructureData {
+    template: PlannerTemplates
+    colorTheme: string;
+    layout: {
+        mainSections: PlannerLayoutSection[];
+        sidebarSections: PlannerLayoutSection[];
+    }; 
+    language: PlannerLanguages;
+}
+
 type PlannerData = {
     content: PlannerContentData;
-    // structure: PlannerStructureData;
+    structure: PlannerStructureData;
 }
+
+type PlannerSections =
+    | "summary"
+    | "socialMedias"
+    | "experiences"
+    | "educations"
+    | "skills"
+    | "languages"
+    | "certifications"
+    | "projects";
+
+type PlannerTemplates = "eevee" | "onix" | "jynx" | "ditto";
