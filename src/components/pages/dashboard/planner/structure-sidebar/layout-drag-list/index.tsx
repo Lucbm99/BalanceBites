@@ -74,6 +74,8 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
     },
 };
 
+export const sectionLabels = labels;
+
 export const LayoutDragList = ({ title, fields }: LayoutDragListProps) => {
     const { watch } = useFormContext<PlannerData>();
 

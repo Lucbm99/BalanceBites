@@ -3,6 +3,7 @@ import { SectionTitle } from "../../infos-sidebar/section-title";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useCallback, useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import colors from "tailwindcss/colors";
 
@@ -19,7 +20,24 @@ const colorKeys = Object.keys(colors).filter((key) => !keysToIgnore.includes(key
 ) as (keyof typeof colors)[];
 
 export const ThemeSection = () => {
-    const { control } = useFormContext<PlannerData>();
+    const { control, watch } = useFormContext<PlannerData>();
+
+    const currentColorTheme = watch("structure.colorTheme");
+
+    const handleSetCssVariable = useCallback(() => {
+        if (!currentColorTheme) return;
+
+        const colorKey = currentColorTheme as keyof typeof colors;
+
+        document.documentElement.style.setProperty(
+            "--planner-primary",
+            colors[colorKey][500]
+        );
+    }, [currentColorTheme])
+
+    useEffect(() => {
+        handleSetCssVariable();
+    }, [handleSetCssVariable])
 
     return (
         <div>

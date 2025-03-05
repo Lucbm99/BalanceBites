@@ -25,6 +25,11 @@ const config: Config = {
 			arial: ["Arial", ...fontFamily.sans],
 		},
   		colors: {
+			
+			planner: {
+				primary: "var(--planner-primary)",
+			},
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

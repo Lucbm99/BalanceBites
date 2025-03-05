@@ -1,6 +1,18 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+export const sectionIsEmpty = (
+  section: PlannerSections,
+  data: PlannerContentData
+) => {
+  switch (section) {
+    case "summary":
+      return data.summary === "" || data.summary === "<p></p>";
+    default:
+      return data[section].length === 0;
+  }
+};
