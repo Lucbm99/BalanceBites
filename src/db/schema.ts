@@ -1,10 +1,12 @@
 import {
     boolean,
     integer,
+    uuid,
     pgTable,
     primaryKey,
     text,
     timestamp,
+    json
 } from "drizzle-orm/pg-core"
 import type { AdapterAccountType } from "next-auth/adapters"
 
@@ -92,3 +94,14 @@ import type { AdapterAccountType } from "next-auth/adapters"
     ])
 
     //Platform
+
+    export const planners = pgTable("planners", {
+        id: uuid("id").primaryKey().defaultRandom(),
+        title: text("title").notNull(),
+        data: json("data").default({}).notNull(),
+        userId: text("user_id").references(() => users.id, {
+            onDelete: "cascade"
+        }).notNull(),
+        createdAt: timestamp("created_at").defaultNow().notNull(),
+        updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    })

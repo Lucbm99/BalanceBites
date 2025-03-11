@@ -4,7 +4,11 @@ import { cn } from "@/lib/utils"
 import { Copy, Download, Home, Trash } from "lucide-react"
 import Link from "next/link"
 
-export const NavigationHeader = () => {
+type NavigationHeaderProps {
+    title: string;
+}
+
+export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
     return (
         <header
             className={cn(
@@ -28,7 +32,7 @@ export const NavigationHeader = () => {
 
                 <span className="text-muted-foreground">/</span>
 
-                <p className="text-lg font-title font-bold ml-1">Título do currículo</p>
+                <p className="text-lg font-title font-bold ml-1">{title}</p>
             </div>
 
             <div className="flex gap-1">

@@ -6,7 +6,11 @@ import { TransformControls } from "./controls";
 import { NavigationHeader } from "./header";
 import { PlannerTemplate } from "./templates";
 
-export const PlannerContent = () => {
+type PlannerContentProps = {
+    title: string;
+}
+
+export const PlannerContent = ({ title }: PlannerContentProps) => {
     const { watch } = useFormContext<PlannerData>();
 
     const data = watch();
@@ -21,7 +25,7 @@ export const PlannerContent = () => {
                 limitToBounds={false}
             >
                 <>  
-                    <NavigationHeader />
+                    <NavigationHeader title={title} />
                     <TransformControls />
                     <TransformComponent>
                         <PlannerTemplate data={data} />

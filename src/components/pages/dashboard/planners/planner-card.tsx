@@ -1,6 +1,8 @@
+import { PlannerDTO } from "@/db/types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { formatDistanceToNow } from "date-fns";
 
 type PlannerCardButtonProps = {
     title: string;
@@ -25,12 +27,18 @@ export const PlannerCardButton = ({ title, description, icon }: PlannerCardButto
     )
 }
 
-export const PlannerCard = () => {
+type PlannerCardProps = {
+    planner: PlannerDTO;
+}
+
+export const PlannerCard = ({ planner }: PlannerCardProps) => {
+    const formattedLastUpdate = formatDistanceToNow(new Date(planner.updatedAt), { addSufix: true });
+
     return (
-        <Link href="/dashboard/food-planners/example" className="block w-full">
+        <Link href={`/dashboard/food-planners/${planner.id}`} className="block w-full">
             <PlannerCardButton 
-                title="Meu planejamento"
-                description="Última atualização há 22 minutos"
+                title={planner.title}
+                description={`Última atualização ${formattedLastUpdate}`}
             />
         </Link>
     )
