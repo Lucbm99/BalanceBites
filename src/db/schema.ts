@@ -1,18 +1,17 @@
 import {
     boolean,
     integer,
-    uuid,
+    json,
     pgTable,
     primaryKey,
     text,
     timestamp,
-    json
+    uuid
 } from "drizzle-orm/pg-core"
 import type { AdapterAccountType } from "next-auth/adapters"
 
     // Auth 
-
-
+    
     export const users = pgTable("user", {
         id: text("id")
         .primaryKey()

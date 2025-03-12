@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
+import { eq } from "drizzle-orm";
 import { cache } from "react";
 import { db } from "./drizzle";
-import { eq } from "./drizzle-orm";
 import { planners } from "./schema";
 import { PlannerDTO } from "./types";
 

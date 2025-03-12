@@ -1,10 +1,10 @@
 "use server";
 
 import { auth } from "@/lib/auth";
+import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 import { db } from "./drizzle";
 import { planners } from "./schema";
-import { revalidadePath } from "next/cache";
-import { eq } from "./drizzle-orm";
 
 export const createPlanner = async (title: string) => {
     const session = await auth();
@@ -18,7 +18,7 @@ export const createPlanner = async (title: string) => {
     .values({ title, userId })
     .returning();
 
-    revalidadePath("/dashboard/food-planners");
+    revalidatePath("/dashboard/food-planners");
 
     return newPlanner[0];
 }
@@ -36,7 +36,7 @@ export const updatePlannerData = async (id: string, data: PlannerData) => {
     .where(eq(planners.id, id))
     .returning();
 
-    revalidadePath("/dashboard/food-planners");
+    revalidatePath("/dashboard/food-planners");
 
     return updatedPlanner[0];
 }

@@ -3,7 +3,7 @@ import { AddPlannerButton } from "../add-planner-button"
 import { NewPlannerDialog } from "../new-planner-dialog"
 import { PlannerCard } from "../planner-card"
 
-export const PlannersList = () => {
+export const PlannersList = async () => {
 
     const planners = await getPlanners();
 

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import { Copy, Download, Home, Trash } from "lucide-react"
 import Link from "next/link"
 
-type NavigationHeaderProps {
+type NavigationHeaderProps = {
     title: string;
 }
 

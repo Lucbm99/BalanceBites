@@ -5,16 +5,16 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { updatePlannerData } from "@/db/actions";
+import { useDebounce } from "@/hooks/use-debounce";
+import { mergician } from "mergician";
+import { User } from "next-auth";
+import { useParams } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { InfosSideBar } from "./infos-sidebar";
 import { PlannerContent } from "./planner-content";
 import { StructureSidebar } from "./structure-sidebar";
-import { User } from "next-auth";
-import { useDebounce } from "@/hooks/use-debounce";
-import { useEffect, useCallback, useRef } from "react";
-import { updatePlannerData } from "@/db/actions";
-import { useParams } from "next/navigation";
-import { mergician } from "mergician";
 
 type PlannerPageProps = {
     title: string;
@@ -67,6 +67,7 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
             },
         },
     };
+    
     const methods = useForm<PlannerData>({ 
         defaultValues: mergician(defaultValues, initialData)
     });
