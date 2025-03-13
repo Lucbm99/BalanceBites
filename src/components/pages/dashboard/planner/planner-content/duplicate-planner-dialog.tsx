@@ -2,12 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
-import { deletePlanner, deleteResume, duplicatePlanner } from "@/db/actions";
+import { duplicatePlanner } from "@/db/actions";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useParams, useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { useMutation } from 'react-query'
 
 type FormData = {
     title: string
@@ -22,15 +23,17 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
 
     const plannerId = params.id as string;
 
-    const onSubmit = async (data: FormData) => {
-        try {
-            const newPlanner = await duplicatePlanner(plannerId, data.title);
+    const { mutate: handleDuplicatePlanner, isPending } = useMutation({
+        mutationFn: (title: string) => duplicatePlanner(plannerId, title),
+        onSuccess: (newPlanner) => {
             toast.success("Currículo duplicado com sucesso.");
+            setOpen(false);
             router.push(`/dashboard/food-plannners/${newPlanner.id}`);
-        } catch (error) {
-            console.error(error);
-            toast.error("Erro ao duplicar currículo, tente novamente mais tarde.");
         }
+    })
+
+    const onSubmit = async (data: FormData) => {
+        handleDuplicatePlanner(data.title);
     }
 
     return (
@@ -51,11 +54,11 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
                         )}
                     />
 
-                    <div className="flex mt-4 ml-auto gap-4">
+                    <div className="flex mt-4 ml-auto gap-3">
                         <Button variant="secondary" onClick={() => setOpen(false)}>
                             Cancelar
                         </Button>
-                        <Button type="submit">
+                        <Button type="submit" disabled={isPending}>
                             Duplicar
                         </Button>
                     </div>

@@ -7,6 +7,7 @@ import { createPlanner } from "@/db/actions";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { useMutation } from 'react-query'
 
 type FormData = {
     title: string;
@@ -17,17 +18,19 @@ export const NewPlannerDialog = (props: BaseDialogProps) => {
 
     const router = useRouter();
 
-    const onSubmit = async (data: FormData) => {
-        try {
-            const planner = await createPlanner(data.title);
-
+    const { mutate: handleCreatePlanner, isPending } = useMutation({
+        mutationFn: createPlanner,
+        onSuccess: (planner) => {
             toast.success("Plano criado com sucesso!");
             router.push(`/dashboard/food-planners/${planner.id}`)
-
-        } catch (error) {
-            console.error(error);
-            toast.error("Erro ao criar plano, tente novamente");
+        },
+        onError: (error) => {
+            
         }
+    })
+
+    const onSubmit = async (data: FormData) => {
+        handleCreatePlanner(data.title);
     }
 
     return (
@@ -43,6 +46,7 @@ export const NewPlannerDialog = (props: BaseDialogProps) => {
                         <Button
                             type="submit"
                             className="w-max mt-6 ml-auto"
+                            disabled={isPending}
                         >
                             Criar
                         </Button>

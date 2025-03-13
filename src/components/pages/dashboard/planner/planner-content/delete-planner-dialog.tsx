@@ -2,10 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
-import { deletePlanner, deleteResume } from "@/db/actions";
+import { deletePlanner } from "@/db/actions";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useParams, useRouter } from "next/navigation"
+import { useMutation } from 'react-query'
 
 export const DeletePlannerDialog = (props: BaseDialogProps) => {
     const [open, setOpen] = useState(false);
@@ -15,15 +16,17 @@ export const DeletePlannerDialog = (props: BaseDialogProps) => {
 
     const plannerId = params.id as string;
 
-    const onDelete = async () => {
-        try {
-            await deletePlanner(plannerId);
+    const { mutateAsync: handleDeletePlanner, isPending } = useMutation({
+        mutationFn: deletePlanner,
+        onSuccess: () => {
             toast.success("Currículo deletado com sucesso.");
+            setOpen(false);
             router.push("/dashboard/food-plannners");
-        } catch (error) {
-            console.error(error);
-            toast.error("Erro ao deletar currículo, tente novamente mais tarde.");
         }
+    })
+
+    const onDelete = async () => {
+        handleDeletePlanner(plannerId);
     }
 
     return (
@@ -38,7 +41,7 @@ export const DeletePlannerDialog = (props: BaseDialogProps) => {
                     <Button variant="secondary" onClick={() => setOpen(false)}>
                         Cancelar
                     </Button>
-                    <Button variant="destructive" onClick={onDelete}>
+                    <Button variant="destructive" onClick={onDelete} disabled={isPending}>
                         Deletar
                     </Button>
                 </div>
