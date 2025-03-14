@@ -1,19 +1,14 @@
-import { Button } from "@/components/ui/button";
-import { Tooltip } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
-import { Copy, Download, Home, Trash } from "lucide-react";
-import Link from "next/link";
-import { DeletePlannerDialog } from "./delete-planner-dialog";
-import { DuplicatePlannerDialog } from "./duplicate-planner-dialog";
-import { usePlannerDownload } from "@/hooks/use-planner-download";
+import { Button } from "@/components/ui/button"
+import { Tooltip } from "@/components/ui/tooltip"
+import { cn } from "@/lib/utils"
+import { Copy, Download, Home, Trash } from "lucide-react"
+import Link from "next/link"
 
 type NavigationHeaderProps = {
     title: string;
 }
 
 export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
-    const { handleDownloadPlanner, isLoading } = usePlannerDownload(title);
-    
     return (
         <header
             className={cn(
@@ -41,29 +36,25 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
             </div>
 
             <div className="flex gap-1">
-                <DeletePlannerDialog>
-                    <Tooltip content="Deletar currículo">
-                        <Button
-                            variant="secondary"
-                            className="w-8 h-8 bg-transparent"
-                            size="icon"
-                        >
-                            <Trash size={18} />
-                        </Button>
-                    </Tooltip>
-                </DeletePlannerDialog>
+                <Tooltip content="Deletar currículo">
+                    <Button
+                        variant="secondary"
+                        className="w-8 h-8 bg-transparent"
+                        size="icon"
+                    >
+                        <Trash size={18} />
+                    </Button>
+                </Tooltip>
 
-                <DuplicatePlannerDialog>
-                    <Tooltip content="Duplicar currículo">
-                        <Button
-                            variant="secondary"
-                            className="w-8 h-8 bg-transparent"
-                            size="icon"
-                        >
-                            <Copy size={18} />
-                        </Button>
-                    </Tooltip>
-                </DuplicatePlannerDialog>
+                <Tooltip content="Duplicar currículo">
+                    <Button
+                        variant="secondary"
+                        className="w-8 h-8 bg-transparent"
+                        size="icon"
+                    >
+                        <Copy size={18} />
+                    </Button>
+                </Tooltip>
 
                 
                 <Tooltip content="Baixar PDF">
@@ -71,8 +62,6 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
                         variant="secondary"
                         className="w-8 h-8 bg-transparent"
                         size="icon"
-                        onClick={handleDownloadPlanner}
-                        disabled={isLoading}
                     >
                         <Download size={18} />
                     </Button>
