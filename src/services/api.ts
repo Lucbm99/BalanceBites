@@ -5,6 +5,11 @@ type PlannerDownloadPayload = {
     structure: PlannerStructureData;
 }
 
+type AIGenerationPayload = {
+    jobTitle: string;
+    jobDescription: string;
+};
+
 const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     const { data } = await api.post("/planner/download", payload,
         { responseType: "blob"}
@@ -13,6 +18,13 @@ const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     return window.URL.createObjectURL(data);
 };
 
+const generateContentForJob = async (payload: AIGenerationPayload) => {
+    const { data } = await api.post("/generate/job-title", payload);
+  
+    return data;
+}
+
 export const ApiService = {
     getPlannerURL,
+    generateContentForJob,
 }
