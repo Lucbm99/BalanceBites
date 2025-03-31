@@ -35,6 +35,8 @@ export const GenerateFromJobTitle = ({
   });
   
   const onSubmit = async (formData: FormData) => {
+    const data = await handleGenerate(formData)
+    
     const generation = JSON.parse(data.data) as GenerationData;
   
     setValue("content.infos.headline", generation.headline);
@@ -44,8 +46,6 @@ export const GenerateFromJobTitle = ({
     toast.success("Conteúdo gerado com sucesso!");
   
     onClose();
-
-    handleGenerate(formData);
   };
   
   return (
