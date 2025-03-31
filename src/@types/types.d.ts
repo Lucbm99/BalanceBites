@@ -113,3 +113,5 @@ type PlannerSections =
     | "projects";
 
 type PlannerTemplates = "eevee" | "onix" | "jynx" | "ditto";
+
+type AIGenerationMode = "JOB_TITLE" | "FIX_CONTENT" | "TRANSLATE_CONTENT";

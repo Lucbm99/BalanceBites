@@ -7,7 +7,7 @@ export const usePlannerDownload = (title?: string) => {
     const handleDownloadPlanner = async () => {
         const { getValues } = useFormContext<PlannerData>();
 
-        const { mutate: handleGetPlannerUrl, isPending } = useMutation({
+        const { mutateAsync: handleGetPlannerUrl, isPending } = useMutation({
             mutationFn: ApiService.getPlannerURL,
         })
 

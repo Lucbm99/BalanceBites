@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Tooltip } from "@/components/ui/tooltip"
+import { usePlannerDownload } from "@/hooks/use-planner-download"
 import { cn } from "@/lib/utils"
 import { Copy, Download, Home, Trash } from "lucide-react"
 import Link from "next/link"
@@ -9,6 +10,8 @@ type NavigationHeaderProps = {
 }
 
 export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
+    const { handleDownloadPlanner, isLoading } = usePlannerDownload(title);
+    
     return (
         <header
             className={cn(
@@ -62,6 +65,8 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
                         variant="secondary"
                         className="w-8 h-8 bg-transparent"
                         size="icon"
+                        onClick={handleDownloadPlanner}
+                        disabled={isLoading}
                     >
                         <Download size={18} />
                     </Button>
