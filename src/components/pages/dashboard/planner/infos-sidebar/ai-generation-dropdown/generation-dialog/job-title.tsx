@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { EditorField } from "@/components/ui/editor/field";
 import { InputField } from "@/components/ui/input/field";
-import { queryKeys } from "@/constants/query-keys";
 import { ApiService } from "@/services/api";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -31,27 +30,24 @@ export const GenerateFromJobTitle = ({
   const { control, formState, handleSubmit } = useForm<FormData>();
   const { setValue } = useFormContext<PlannerData>();
 
-  const queryClient = useQueryClient();
-
   const { mutateAsync: handleGenerate, isPending } = useMutation({
     mutationFn: ApiService.generateContentForJob,
-    onSuccess: (data) => {
-      const generation = JSON.parse(data.data) as GenerationData;
-
-      setValue("content.infos.headline", generation.headline);
-      setValue("content.summary", generation.summary);
-      setValue("content.skills", generation.skills);
-
-      toast.success("Conteúdo gerado com sucesso!");
-
-      onClose();
-    },
   });
-
+  
   const onSubmit = async (formData: FormData) => {
+    const generation = JSON.parse(data.data) as GenerationData;
+  
+    setValue("content.infos.headline", generation.headline);
+    setValue("content.summary", generation.summary);
+    setValue("content.skills", generation.skills);
+  
+    toast.success("Conteúdo gerado com sucesso!");
+  
+    onClose();
+
     handleGenerate(formData);
   };
-
+  
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <InputField

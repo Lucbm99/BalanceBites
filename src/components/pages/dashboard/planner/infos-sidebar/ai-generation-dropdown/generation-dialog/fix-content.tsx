@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ApiService } from "@/services/api";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 import { mergician } from "mergician";
@@ -14,8 +14,6 @@ export const GenerateToFixContent = ({
 }: GenerateToFixContentProps) => {
   const { handleSubmit } = useForm();
   const { getValues, setValue } = useFormContext<PlannerData>();
-
-  const queryClient = useQueryClient();
 
   const { mutate: handleGenerate, isPending } = useMutation({
     mutationFn: ApiService.fixContent,
