@@ -1,4 +1,3 @@
-import { api } from "@/lib/axios";
 import { ApiService } from "@/services/api";
 import { useFormContext } from "react-hook-form";
 import { useMutation } from 'react-query';
@@ -11,7 +10,6 @@ export const usePlannerDownload = (title?: string) => {
             mutationFn: ApiService.getPlannerURL,
         })
 
-
         const planner = document.getElementById("planner-content")
 
         if (!planner) return;
@@ -20,8 +18,8 @@ export const usePlannerDownload = (title?: string) => {
 
         const url = await handleGetPlannerUrl({
             html: planner.outerHTML,
-            structure
-        })
+            structure,
+        });
 
         const link = document.createElement("a");
         link.href = url;

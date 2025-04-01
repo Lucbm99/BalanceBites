@@ -18,7 +18,7 @@ type AiTranslationPayload = {
 const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     const { data } = await api.post("/planner/download", payload,
         { responseType: "blob"}
-     );
+    );
 
     return window.URL.createObjectURL(data);
 };

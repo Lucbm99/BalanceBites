@@ -2,13 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
-import { duplicatePlanner } from "@/db/actions";
-import { useState } from "react";
-import { toast } from "sonner";
-import { useParams, useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { useMutation } from 'react-query'
+import { duplicatePlanner } from "@/db/actions";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useMutation } from 'react-query';
+import { toast } from "sonner";
 
 type FormData = {
     title: string
@@ -18,6 +18,7 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
     const [open, setOpen] = useState(false);
 
     const methods = useForm<FormData>();
+    
     const params = useParams();
     const router = useRouter();
 

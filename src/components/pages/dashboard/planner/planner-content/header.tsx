@@ -4,6 +4,8 @@ import { usePlannerDownload } from "@/hooks/use-planner-download"
 import { cn } from "@/lib/utils"
 import { Copy, Download, Home, Trash } from "lucide-react"
 import Link from "next/link"
+import { DeletePlannerDialog } from "./delete-planner-dialog"
+import { DuplicatePlannerDialog } from "./duplicate-planner-dialog"
 
 type NavigationHeaderProps = {
     title: string;
@@ -39,26 +41,29 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
             </div>
 
             <div className="flex gap-1">
-                <Tooltip content="Deletar currículo">
-                    <Button
-                        variant="secondary"
-                        className="w-8 h-8 bg-transparent"
-                        size="icon"
-                    >
-                        <Trash size={18} />
-                    </Button>
-                </Tooltip>
+                <DeletePlannerDialog>
+                    <Tooltip content="Deletar currículo">
+                        <Button
+                            variant="secondary"
+                            className="w-8 h-8 bg-transparent"
+                            size="icon"
+                        >
+                            <Trash size={18} />
+                        </Button>
+                    </Tooltip>
+                </DeletePlannerDialog>
 
-                <Tooltip content="Duplicar currículo">
-                    <Button
-                        variant="secondary"
-                        className="w-8 h-8 bg-transparent"
-                        size="icon"
-                    >
-                        <Copy size={18} />
-                    </Button>
-                </Tooltip>
-
+                <DuplicatePlannerDialog>
+                    <Tooltip content="Duplicar currículo">
+                        <Button
+                            variant="secondary"
+                            className="w-8 h-8 bg-transparent"
+                            size="icon"
+                        >
+                            <Copy size={18} />
+                        </Button>
+                    </Tooltip>
+                </DuplicatePlannerDialog>
                 
                 <Tooltip content="Baixar PDF">
                     <Button

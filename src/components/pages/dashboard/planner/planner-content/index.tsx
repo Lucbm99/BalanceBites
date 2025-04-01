@@ -26,7 +26,7 @@ export const PlannerContent = ({ title }: PlannerContentProps) => {
             >
                 <>  
                     <NavigationHeader title={title} />
-                    <TransformControls />
+                    <TransformControls title={title} />
                     <TransformComponent>
                         <PlannerTemplate data={data} />
                     </TransformComponent>
