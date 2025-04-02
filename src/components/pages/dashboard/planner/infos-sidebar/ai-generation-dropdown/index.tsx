@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button"
-import { BadgeCent, Bot, BriefcaseBusiness, CirclePercent, Languages, PencilLine } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -7,7 +6,8 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { BadgeCent, Bot, BriefcaseBusiness, CirclePercent, Languages, PencilLine } from "lucide-react";
 import { useState } from "react";
 import { GenerationDialog } from "./generation-dialog";
 
@@ -16,24 +16,24 @@ export const AIGenerationDropdown = () => {
 
     const actions = [
         {
-          label: "Comprar créditos",
-          icon: CirclePercent,
-          onClick: () => console.log("Comprar créditos"),
+            label: "Comprar créditos",
+            icon: CirclePercent,
+            onClick: () => console.log("Comprar créditos"),
         },
         {
-          label: "Gerar conteúdo para vaga de emprego",
-          icon: BriefcaseBusiness,
-          onClick: () => setGenerationMode("JOB_TITLE"),
+            label: "Gerar conteúdo para vaga de emprego",
+            icon: BriefcaseBusiness,
+            onClick: () => setGenerationMode("JOB_TITLE"),
         },
         {
-          label: "Melhorar e corrigir conteúdo existente",
-          icon: PencilLine,
-          onClick: () => setGenerationMode("FIX_CONTENT"),
+            label: "Melhorar e corrigir conteúdo existente",
+            icon: PencilLine,
+            onClick: () => setGenerationMode("FIX_CONTENT"),
         },
         {
-          label: "Traduzir conteúdo existente",
-          icon: Languages,
-          onClick: () => setGenerationMode("TRANSLATE_CONTENT"),
+            label: "Traduzir conteúdo existente",
+            icon: Languages,
+            onClick: () => setGenerationMode("TRANSLATE_CONTENT"),
         }
     ];
 

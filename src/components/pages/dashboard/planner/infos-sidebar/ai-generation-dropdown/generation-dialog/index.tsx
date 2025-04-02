@@ -1,6 +1,6 @@
-import { BaseDialogProps, Dialog } from "@/components/ui/dialog"
-import { GenerateFromJobTitle } from "./job-title.tsx";
+import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { GenerateToFixContent } from "./fix-content";
+import { GenerateFromJobTitle } from "./job-title";
 import { GenerateTranslation } from "./translate";
 
 type GenerationDialogProps = BaseDialogProps & {
