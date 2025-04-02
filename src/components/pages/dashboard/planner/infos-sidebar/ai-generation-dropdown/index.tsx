@@ -73,11 +73,11 @@ export const AIGenerationDropdown = () => {
 
             {!!generationMode && (
                 <GenerationDialog
-                mode={generationMode}
-                open={!!generationMode}
-                setOpen={(value) => {
-                    if (!value) setGenerationMode(null);
-                }}
+                    mode={generationMode}
+                    open={!!generationMode}
+                    setOpen={(value) => {
+                        if (!value) setGenerationMode(null);
+                    }}
                 />
             )}
         </> 
