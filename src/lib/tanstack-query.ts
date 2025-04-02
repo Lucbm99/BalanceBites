@@ -1,7 +1,7 @@
 import { MutationCache, QueryClient } from "@tanstack/react-query";
+import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
-import axios from "axios";
 
 const handleErrorMessage = (error: unknown) => {
     if (error instanceof Error) {
@@ -20,7 +20,7 @@ export const useTanstackQuery = () => {
         new QueryClient({
             defaultOptions: {
                 queries: {
-                    refetchOnWindowsFocus: false,
+                    refetchOnWindowFocus: false,
                     retry: false,
                 }
             },

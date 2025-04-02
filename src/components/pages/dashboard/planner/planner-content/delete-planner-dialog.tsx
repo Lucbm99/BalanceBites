@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { deletePlanner } from "@/db/actions";
+import { useMutation } from '@tanstack/react-query';
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useParams, useRouter } from "next/navigation"
-import { useMutation } from 'react-query'
 
 export const DeletePlannerDialog = (props: BaseDialogProps) => {
     const [open, setOpen] = useState(false);

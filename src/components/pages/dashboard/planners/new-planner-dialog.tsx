@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { InputField } from "@/components/ui/input/field";
 import { createPlanner } from "@/db/actions";
+import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { useMutation } from 'react-query'
 
 type FormData = {
     title: string;
