@@ -1,3 +1,4 @@
+import { openai } from '@/lib/openai';
 import { isValidJSON } from "@/lib/utils";
 import { z } from "zod";
 

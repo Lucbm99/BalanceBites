@@ -1,8 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ApiService } from "@/services/api";
-import { useMutation } from "@tanstack/react-query";
-import { Controller, useForm, useFormContext } from "react-hook-form";
-import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -10,8 +6,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { languagesOptions } from "../../../structure-sidebar/sections/language";
+import { ApiService } from "@/services/api";
+import { useMutation } from "@tanstack/react-query";
 import { mergician } from "mergician";
+import { Controller, useForm, useFormContext } from "react-hook-form";
+import { toast } from "sonner";
+import { languagesOptions } from "../../../structure-sidebar/sections/language";
 
 type FormData = {
   language: PlannerLanguages;
@@ -25,7 +25,7 @@ export const GenerateTranslation = ({ onClose }: GenerateTranslationProps) => {
   const { control, handleSubmit, getValues: getFormValue } = useForm<FormData>();
   const { setValue, getValues } = useFormContext<PlannerData>();
 
-  const { mutate: handleGenerate, isPending } = useMutation({
+  const { mutateAsync: handleGenerate, isPending } = useMutation({
     mutationFn: ApiService.translate,
   });
 

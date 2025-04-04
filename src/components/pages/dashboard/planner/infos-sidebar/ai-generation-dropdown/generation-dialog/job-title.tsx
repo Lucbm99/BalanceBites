@@ -60,7 +60,7 @@ export const GenerateFromJobTitle = ({
       <EditorField
         control={control}
         name="jobDescription"
-        label="Descrição da vaga (Opcional)"
+        label="Descrição da vaga (opcional)"
         className="min-h-[200px] max-h-[300px]"
       />
 

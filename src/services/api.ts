@@ -13,7 +13,7 @@ type AIGenerationPayload = {
 type AiTranslationPayload = {
     content: PlannerContentData;
     language: string;
-}  
+}
 
 const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     const { data } = await api.post("/planner/download", payload,
