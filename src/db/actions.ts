@@ -50,7 +50,7 @@ export const deletePlanner = async (id: string) => {
         where: eq(planners.id, id)
     });
 
-    if (!planner) throw new Error("Currículo não encontrado.");
+    if (!planner) throw new Error("Planejamento alimentar não encontrado.");
     if (planner.userId !== userId) throw new Error("Usuário não autorizado");
 
     await db.delete(planners).where(eq(planners.id, id)).execute();
@@ -59,24 +59,24 @@ export const deletePlanner = async (id: string) => {
 }
 
 export const duplicatePlanner = async (id: string, title: string) => {
-    const userId = getUserIdOrThrow();
+    const userId = await getUserIdOrThrow();
 
     const planner = await db.query.planners.findFirst({
-        where: eq(planners.id, id)
+        where: eq(planners.id, id),
     });
 
-    if (!planner) throw new Error("Plano não encontrado.");
+    if (!planner) throw new Error("Planejamento alimentar não encontrado.");
 
     const newPlanner = await db
-    .insert(planners)
-    .values({
-        title, 
-        userId,
-        data: planner.data,
-    })
+        .insert(planners)
+        .values({
+            title,
+            userId,
+            data: planner.data,
+        })
     .returning();
 
     revalidatePath("/dashboard/food-planners");
 
     return newPlanner[0];
-}
+};

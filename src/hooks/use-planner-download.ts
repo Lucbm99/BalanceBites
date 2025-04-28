@@ -5,19 +5,19 @@ import { useFormContext } from "react-hook-form";
 export const usePlannerDownload = (title?: string) => {
     const { getValues } = useFormContext<PlannerData>();
 
-    const { mutateAsync: handleGetResumeUrl, isPending } = useMutation({
+    const { mutateAsync: handleGetPlannerUrl, isPending } = useMutation({
         mutationFn: ApiService.getPlannerURL,
     })
 
     const handleDownloadPlanner = async () => {
-        const resume = document.getElementById("resume-content");
+        const planner = document.getElementById("planner-content");
 
-        if (!resume) return;
+        if (!planner) return;
 
         const structure = getValues("structure");
 
-        const url = await handleGetResumeUrl({
-            html: resume.outerHTML,
+        const url = await handleGetPlannerUrl({
+            html: planner.outerHTML,
             structure,
         })
 

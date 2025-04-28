@@ -27,9 +27,9 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
     const { mutate: handleDuplicatePlanner, isPending } = useMutation({
         mutationFn: (title: string) => duplicatePlanner(plannerId, title),
         onSuccess: (newPlanner) => {
-            toast.success("Currículo duplicado com sucesso.");
+            toast.success("Planejamento alimentar duplicado com sucesso.");
             setOpen(false);
-            router.push(`/dashboard/food-plannners/${newPlanner.id}`);
+            router.push(`/dashboard/food-planners/${newPlanner.id}`);
         }
     })
 
@@ -42,7 +42,7 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
             {...props}
             open={open}
             setOpen={setOpen}
-            title="Duplicar currículo"
+            title="Duplicar planejamento alimentar"
             description="Será criado um novo planejamento alimentar com o mesmo conteúdo do atual. Insira o novo título para o documento a ser duplicado."
             content={
                 <form className="flex flex-col" onSubmit={methods.handleSubmit(onSubmit)}>
@@ -55,7 +55,7 @@ export const DuplicatePlannerDialog = (props: BaseDialogProps) => {
                         )}
                     />
 
-                    <div className="flex mt-4 ml-auto gap-3">
+                    <div className="flex mt-4 justify-between gap-3">
                         <Button variant="secondary" onClick={() => setOpen(false)}>
                             Cancelar
                         </Button>

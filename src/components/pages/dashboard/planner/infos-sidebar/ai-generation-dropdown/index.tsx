@@ -62,7 +62,7 @@ export const AIGenerationDropdown = () => {
                             key={action.label}
                             className="gap-2"
                             onClick={action.onClick}
-                            disabled={isLoading}
+                            // disabled={isLoading}
                         >
                         <action.icon size={18} className="text-muted-foreground" />
                         {action.label}

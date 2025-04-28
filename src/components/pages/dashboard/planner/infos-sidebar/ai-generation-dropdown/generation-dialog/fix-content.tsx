@@ -38,7 +38,7 @@ export const GenerateToFixContent = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <p>
-        Esta funcionalidade aprimora o conteúdo atual do currículo e também
+        Esta funcionalidade aprimora o conteúdo atual do planejamento alimentar e também
         corrige possíveis erros gramaticais.{" "}
         <strong>Lembre-se de preencher o conteúdo antes da geração.</strong>
       </p>

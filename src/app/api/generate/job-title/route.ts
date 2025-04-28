@@ -28,7 +28,7 @@ export const POST = async (request: Request) => {
               
                 **Importante**: Não mencione o título da vaga ou dados da empresa no JSON. O conteúdo deve ser escrito de forma profissional e direta, utilizando a metodologia STAR para o campo de "sobre mim" e adotando um tom que destaque as qualificações do candidato.
               
-                Estrutura (Gere um JSON válido e bem formatado):
+                Estrutura (Gere um JSON válido e bem formatado, sem envolver o JSON por JSON markdown markers):
                 {
                   summary: "Campo usado para sobre mim, usando metodologia tipo STAR, focando em conquistas relevantes para a vaga.",
                   headline: "Headline curto em poucas palavras para ficar abaixo do nome do candidato. Normalmente é o nome do cargo",

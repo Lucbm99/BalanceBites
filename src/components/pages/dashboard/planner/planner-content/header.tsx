@@ -42,7 +42,7 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
 
             <div className="flex gap-1">
                 <DeletePlannerDialog>
-                    <Tooltip content="Deletar currículo">
+                    <Tooltip content="Deletar planejamento alimentar">
                         <Button
                             variant="secondary"
                             className="w-8 h-8 bg-transparent"
@@ -54,7 +54,7 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
                 </DeletePlannerDialog>
 
                 <DuplicatePlannerDialog>
-                    <Tooltip content="Duplicar currículo">
+                    <Tooltip content="Duplicar planejamento alimentar">
                         <Button
                             variant="secondary"
                             className="w-8 h-8 bg-transparent"

@@ -10,7 +10,7 @@ export const NavItems = () => {
     const pathname = usePathname();
     const navItems = [
         {
-            label: "Currículos",
+            label: "Planejamentos alimentares",
             icon: Newspaper,
             path: '/dashboard/food-planners',
         }, 

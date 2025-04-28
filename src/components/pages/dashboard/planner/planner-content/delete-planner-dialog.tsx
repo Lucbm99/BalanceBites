@@ -19,9 +19,9 @@ export const DeletePlannerDialog = (props: BaseDialogProps) => {
     const { mutateAsync: handleDeletePlanner, isPending } = useMutation({
         mutationFn: deletePlanner,
         onSuccess: () => {
-            toast.success("Currículo deletado com sucesso.");
+            toast.success("Planejamento alimentar deletado com sucesso.");
             setOpen(false);
-            router.push("/dashboard/food-plannners");
+            router.push("/dashboard/food-planners");
         }
     })
 
@@ -34,10 +34,10 @@ export const DeletePlannerDialog = (props: BaseDialogProps) => {
             {...props}
             open={open}
             setOpen={setOpen}
-            title="Deletar currículo"
+            title="Deletar planejamento alimentar"
             description="Você tem certeza que deseja deletar este planejamento alimentar?"
             content={
-                <div className="flex gap-2 ml-auto">
+                <div className="flex mt-4 gap-2 justify-between">
                     <Button variant="secondary" onClick={() => setOpen(false)}>
                         Cancelar
                     </Button>

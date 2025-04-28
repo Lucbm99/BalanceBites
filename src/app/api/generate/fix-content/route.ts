@@ -23,7 +23,7 @@ export const POST = async (request: Request) => {
           Também corrija erros gramaticais e de concordância, se necessário.
           Mantenha dados pessoais, links, emails, etc. como estão, apenas altere o texto dos campos.
 
-          **Lembre-se de retornar um JSON válido e bem formatado.**
+          **Lembre-se de retornar um JSON válido e bem formatado, sem envolver o JSON por JSON markdown markers.**
 
           **JSON:**
 

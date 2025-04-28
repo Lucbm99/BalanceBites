@@ -347,7 +347,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
                         <FormProvider {...methods}>{formContent}</FormProvider>
                     </div>
 
-                    <div className="ml-auto flex gap-3">
+                    <div className="flex justify-between gap-3 mt-4">
                         {isEditing && (
                             <Button variant="destructive" onClick={onDelete}>
                                 Remover
