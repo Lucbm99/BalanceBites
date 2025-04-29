@@ -27,11 +27,11 @@ export const formatTailwindHTML = (
   return `
       <html>
         <head>
-          <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+          <script src="https://cdn.tailwindcss.com/"></script>
           <script>
             tailwind.config = ${JSON.stringify(tailwindConfig)};         
             document.documentElement.style.setProperty(
-              --planner-primary",
+              "--planner-primary",
               "${colors[colorKey][500]}"
             );
           </script>
