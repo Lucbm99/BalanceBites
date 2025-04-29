@@ -241,7 +241,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
     const isEditing = !!initialData;
 
     useEffect(() => {
-        if(initialData) methods.reset(initialData);
+        if (initialData) methods.reset(initialData);
     }, [initialData, methods])
 
 
@@ -274,7 +274,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
                             extraContent={value => (
                                 <div className="flex gap-2 flex-wrap mt-1">
                                     {value?.split(",").map((keyword, index) => {
-                                        if(!keyword.trim()) return null;
+                                        if (!keyword.trim()) return null;
                                         
                                         return <Badge key={`keyword-${index}`}>{keyword}</Badge>
                                     })}
@@ -309,9 +309,9 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
         const formKey = data.formKey;
         const currentFieldValue = currentValue.content[formKey] ?? [];
 
-        if(isEditing) {
+        if (isEditing) {
             const updatedItems = currentFieldValue.map((item: any) => {
-                if(item.id === initialData.id) {
+                if (item.id === initialData.id) {
                     return formData
                 }
 

@@ -32,7 +32,7 @@ export const TemplatesListSection = () => {
                                     onClick={() => field.onChange(template)}                                
                                 >
                                     <Image 
-                                        className="w-full w-fill object-cover"
+                                        className="w-full h-full object-cover"
                                         width={150}
                                         height={130}
                                         src={`/images/templates/${template}.webp`}

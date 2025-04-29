@@ -11,7 +11,7 @@ export const LayoutSection = () => {
         fields: mainFields,
         move: moveMainField,
         insert: insertMainField,
-        remove: removeMainField
+        remove: removeMainField,
     } = useFieldArray({
         control,
         name: "structure.layout.mainSections"
@@ -21,16 +21,16 @@ export const LayoutSection = () => {
         fields: sidebarFields,
         move: moveSidebarField,
         insert: insertSidebarField,
-        remove: removeSidebarField
+        remove: removeSidebarField,
     } = useFieldArray({
         control,
         name: "structure.layout.sidebarSections"
     })
 
     const onDragEnd = ({ source, destination }: DropResult) => {
-        if(!destination) return;
+        if (!destination) return;
 
-        if(source.droppableId !== destination.droppableId) {
+        if (source.droppableId !== destination.droppableId) {
             switch (destination.droppableId) {
                 case "mainFields": 
                     insertMainField(destination.index, sidebarFields[source.index]);
@@ -45,13 +45,11 @@ export const LayoutSection = () => {
             return;
         }
 
-        if(source.droppableId === "mainFields") {
+        if (source.droppableId === "mainFields") {
             moveMainField(source.index, destination.index)
         } else {
             moveSidebarField(source.index, destination.index)
         }
-        
-        console.log(source, destination);
     }
 
     return (

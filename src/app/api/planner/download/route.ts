@@ -7,7 +7,7 @@ export const POST = async (request: Request) => {
 
             const { html, structure } = body;
 
-            if(!html || !structure) return Response.json(
+            if (!html || !structure) return Response.json(
                 { message: "Parâmetros inválidos" },
                 { status: 400 }
             );

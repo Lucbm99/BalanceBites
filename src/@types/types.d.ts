@@ -88,7 +88,7 @@ type PlannerLayoutSection = {
 type PlannerLanguages = "english" | "spanish" | "french" | "german" | "italian" | "portuguese";
 
 type PlannerStructureData = {
-    template: PlannerTemplates
+    template: PlannerTemplates;
     colorTheme: string;
     layout: {
         mainSections: PlannerLayoutSection[];

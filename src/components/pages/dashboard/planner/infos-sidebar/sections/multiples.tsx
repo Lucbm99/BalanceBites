@@ -91,7 +91,7 @@ export const MultiplesSections = () => {
                     data={sectionToAdd}
                     open={!!sectionToAdd}
                     setOpen={(value) => {
-                        if(!value) {
+                        if (!value) {
                             setSectionToAdd(null);
                             setInitialData(null);
                         };

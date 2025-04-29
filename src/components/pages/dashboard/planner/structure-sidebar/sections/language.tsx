@@ -58,7 +58,7 @@ export const LanguageSection = () => {
                         </SelectTrigger>
                         <SelectContent>
                             {languagesOptions.map(language => (
-                                <SelectItem key={language.value} value={language.label}>
+                                <SelectItem key={language.value} value={language.value}>
                                     {language.label}
                                 </SelectItem>
                             ))}

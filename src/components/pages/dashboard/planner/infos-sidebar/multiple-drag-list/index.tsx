@@ -35,7 +35,7 @@ export const MultipleDragList = ({
     });
     
     const handleDrag = ({source, destination}: DropResult) => {
-        if(!destination) return;
+        if (!destination) return;
         
         move(source.index, destination.index);
     }

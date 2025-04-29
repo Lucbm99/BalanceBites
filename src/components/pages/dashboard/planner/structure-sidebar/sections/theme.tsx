@@ -14,9 +14,14 @@ const keysToIgnore = [
     "transparent",
     "black",
     "white",
+    "warmGray",
+    "trueGray",
+    "coolGray",
+    "blueGray",
 ]
 
-const colorKeys = Object.keys(colors).filter((key) => !keysToIgnore.includes(key)
+const colorKeys = Object.keys(colors).filter(
+    (key) => !keysToIgnore.includes(key)
 ) as (keyof typeof colors)[];
 
 export const ThemeSection = () => {
