@@ -50,6 +50,7 @@ export const POST = async (request: Request) => {
 
         if (!isValidJSON(json)) throw new Error("JSON inválido.");
     
+        console.log("JSON - route.ts", json);
         return Response.json({ data: json });
       
     } catch (error) {

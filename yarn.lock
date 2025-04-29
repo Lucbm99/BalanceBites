@@ -1957,6 +1957,12 @@
   dependencies:
     undici-types "~6.20.0"
 
+"@types/node@>=8.1.0":
+  version "22.15.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.3.tgz#b7fb9396a8ec5b5dfb1345d8ac2502060e9af68b"
+  dependencies:
+    undici-types "~6.21.0"
+
 "@types/node@^18.11.18":
   version "18.19.86"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.86.tgz#a7e1785289c343155578b9d84a0e3e924deb948b"
@@ -4677,6 +4683,12 @@ puppeteer@^24.4.0:
     puppeteer-core "24.4.0"
     typed-query-selector "^2.12.0"
 
+qs@^6.11.0:
+  version "6.14.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.14.0.tgz#c63fa40680d2c5c941412a0e899c89af60c0a930"
+  dependencies:
+    side-channel "^1.1.0"
+
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
@@ -5175,6 +5187,13 @@ strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
 
+stripe@^18.0.0:
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-18.0.0.tgz#1efc7a102b3b4fb5146a68b46299b0cae2d35470"
+  dependencies:
+    "@types/node" ">=8.1.0"
+    qs "^6.11.0"
+
 styled-jsx@5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz"
@@ -5431,6 +5450,10 @@ undici-types@~6.19.2:
 undici-types@~6.20.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.20.0.tgz#8171bf22c1f588d1554d55bf204bc624af388433"
+
+undici-types@~6.21.0:
+  version "6.21.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.21.0.tgz#691d00af3909be93a7faa13be61b3a5b50ef12cb"
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.1"

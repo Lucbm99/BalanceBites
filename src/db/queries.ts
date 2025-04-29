@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth";
 import { eq } from "drizzle-orm";
 import { cache } from "react";
 import { db } from "./drizzle";
-import { planners } from "./schema";
+import { planners, users } from "./schema";
 import { PlannerDTO } from "./types";
 
 export const getPlanners = cache(async (): Promise<PlannerDTO[]> => {
@@ -31,4 +31,18 @@ export const getPlannerById = cache(async (id: string): Promise<PlannerDTO | und
     })
 
     return planner;
-})
+});
+
+export const getUserCredits = cache(async () => {
+    const session = await auth();
+
+    const userId = session?.user?.id;
+
+    if (!userId) return 0;
+
+    const user = await db.query.users.findFirst({
+        where: eq(users.id, userId),
+    });
+
+    return user?.credits ?? 0;
+});

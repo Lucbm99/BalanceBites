@@ -1,4 +1,5 @@
 import { api } from "@/lib/axios";
+import Stripe from "stripe";
 
 type PlannerDownloadPayload = {
     html: string;
@@ -26,6 +27,9 @@ const getPlannerURL = async (payload: PlannerDownloadPayload) => {
 const generateContentForJob = async (payload: AIGenerationPayload) => {
     const { data } = await api.post("/generate/job-title", payload);
 
+    console.log("data - API.ts: ", data);
+    console.log("payload - API.ts: ", payload);
+
     return data;
 }
 
@@ -41,9 +45,28 @@ const translate = async (payload: AiTranslationPayload) => {
     return data;
 }
 
+const getCredits = async () => {
+    const { data } = await api.get<{ credits: number }>("/credits");
+    return data?.credits ?? 0;
+}
+
+const getPackages = async () => {
+    const { data } = await api.get<Stripe.Price[]>("/credits/packages");
+    return data;
+}
+
+const getCheckoutUrl = async (priceId: string, currentPathname: string) => {
+    const { data } = await api.post<{ url: string }>("/credits/packages/checkout", { priceId, currentPathname });
+
+    return data.url;
+}
+
 export const ApiService = {
     getPlannerURL,
     generateContentForJob,
     fixContent,
     translate,
+    getCredits,
+    getPackages,
+    getCheckoutUrl,
 }

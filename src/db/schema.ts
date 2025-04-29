@@ -20,6 +20,8 @@ import type { AdapterAccountType } from "next-auth/adapters"
         email: text("email").unique(),
         emailVerified: timestamp("emailVerified", { mode: "date" }),
         image: text("image"),
+        credits: integer("credits").default(0).notNull(),
+        customerId: text("customerId").unique(),
     })
 
     export const accounts = pgTable(
