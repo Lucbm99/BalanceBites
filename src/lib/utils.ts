@@ -52,3 +52,7 @@ export const isValidJSON = (json: string) => {
     return false;
   }
 }
+
+export const removeJSONMarkers = (json: string) => {
+  return json.replace(/^```json\s*|\s*```$/g, "");
+};
