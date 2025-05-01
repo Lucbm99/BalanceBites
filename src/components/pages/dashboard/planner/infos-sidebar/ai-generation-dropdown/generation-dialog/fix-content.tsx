@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { queryKeys } from "@/constants/query-keys";
 import { ApiService } from "@/services/api";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { mergician } from "mergician";
 import { useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
@@ -15,30 +16,36 @@ export const GenerateToFixContent = ({
   const { handleSubmit } = useForm();
   const { getValues, setValue } = useFormContext<PlannerData>();
 
-  const { mutateAsync: handleGenerate, isPending } = useMutation({
+  const queryClient = useQueryClient();
+
+  const { mutate: handleGenerate, isPending } = useMutation({
     mutationFn: ApiService.fixContent,
+    onSuccess: (data) => {
+      const content = getValues("content");
+
+      const generation = JSON.parse(data.data);
+
+      const mergedContent = mergician(content, generation) as PlannerContentData;
+      setValue("content", mergedContent);
+
+      toast.success("Conteúdo gerado com sucesso!");
+
+      queryClient.invalidateQueries({ queryKey: queryKeys.credits });
+
+      onClose();
+    },
   });
 
   const onSubmit = async () => {
     const content = getValues("content");
 
-    const data = await handleGenerate(content)
-    
-    const generation = JSON.parse(data.data);
-    
-    const mergedContent = mergician(content, generation) as PlannerContentData;
-    setValue("content", mergedContent);
-    
-    toast.success("Conteúdo gerado com sucesso!");
-
-    onClose();
-
+    handleGenerate(content);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <p>
-        Esta funcionalidade aprimora o conteúdo atual do planejamento alimentar e também
+        Esta funcionalidade aprimora o conteúdo atual do currículo e também
         corrige possíveis erros gramaticais.{" "}
         <strong>Lembre-se de preencher o conteúdo antes da geração.</strong>
       </p>

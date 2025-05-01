@@ -1,3 +1,5 @@
+import { decrementUserCredits } from '@/db/actions';
+import { getUserCredits } from '@/db/queries';
 import { ai } from '@/lib/gemini';
 import { isValidJSON, removeJSONMarkers } from "@/lib/utils";
 import { z } from "zod";
@@ -9,6 +11,11 @@ const schema = z.object({
 
 export const POST = async (request: Request) => {
   try {
+  const credits = await getUserCredits();
+
+  if (credits <= 0) {
+    return Response.json({ message: "Créditos insuficientes." }, { status: 403 });
+  }
 
     const body = await request.json();
 
@@ -34,6 +41,8 @@ export const POST = async (request: Request) => {
     const json = removeJSONMarkers(response.text ?? "");
 
     if (!isValidJSON(json)) throw new Error("JSON inválido.");
+
+    await decrementUserCredits(1);
 
     return Response.json({ data: json });
   } catch (error) {

@@ -26,10 +26,7 @@ const getPlannerURL = async (payload: PlannerDownloadPayload) => {
 
 const generateContentForJob = async (payload: AIGenerationPayload) => {
     const { data } = await api.post("/generate/job-title", payload);
-
-    console.log("data - API.ts: ", data);
-    console.log("payload - API.ts: ", payload);
-
+    
     return data;
 }
 

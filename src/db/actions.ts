@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "./drizzle";
-import { planners } from "./schema";
+import { planners, users } from "./schema";
 
 const getUserIdOrThrow = async () => {
     const session = await auth();
@@ -79,4 +79,22 @@ export const duplicatePlanner = async (id: string, title: string) => {
     revalidatePath("/dashboard/food-planners");
 
     return newPlanner[0];
+};
+
+export const decrementUserCredits = async (amount: number) => {
+    const userId = await getUserIdOrThrow();
+
+    const user = await db.query.users.findFirst({
+        where: eq(users.id, userId),
+    });
+
+    if (!user) throw new Error("Usuário não encontrado.");
+
+    const updatedUser = await db
+        .update(users)
+        .set({ credits: user.credits - amount })
+        .where(eq(users.id, userId))
+        .returning();
+
+    return updatedUser[0];
 };

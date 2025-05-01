@@ -6,8 +6,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { queryKeys } from "@/constants/query-keys";
 import { ApiService } from "@/services/api";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { mergician } from "mergician";
 import { Controller, useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
@@ -25,32 +26,41 @@ export const GenerateTranslation = ({ onClose }: GenerateTranslationProps) => {
   const { control, handleSubmit, getValues: getFormValue } = useForm<FormData>();
   const { setValue, getValues } = useFormContext<PlannerData>();
 
-  const { mutateAsync: handleGenerate, isPending } = useMutation({
+  const queryClient = useQueryClient();
+
+  const { mutate: handleGenerate, isPending } = useMutation({
     mutationFn: ApiService.translate,
+    onSuccess: (data) => {
+      const content = getValues("content");
+
+      const generation = JSON.parse(data.data);
+
+      const mergedContent = mergician(content, generation) as PlannerContentData;
+
+      const language = getFormValue("language");
+
+      setValue("content", mergedContent);
+      setValue("structure.language", language);
+
+      toast.success("Conteúdo gerado com sucesso!");
+
+      queryClient.invalidateQueries({ queryKey: queryKeys.credits });
+
+      onClose();
+    }
   });
 
   const onSubmit = async (formData: FormData) => {
     const content = getValues("content");
 
     const selectedLanguage = languagesOptions.find(
-        (item) => item.value === formData.language
+      (item) => item.value === formData.language
     );
-  
-    const data = await handleGenerate({
-        content,
-        language: selectedLanguage?.label!,
+
+    handleGenerate({
+      content,
+      language: selectedLanguage?.label!,
     });
-
-    const generation = JSON.parse(data.data);
-
-    const mergedContent = mergician(content, generation) as PlannerContentData;
-    setValue("content", mergedContent);
-    setValue("structure.language", formData.language);
-
-    toast.success("Conteúdo gerado com sucesso!");
-
-    onClose();
-
   };
 
   return (
