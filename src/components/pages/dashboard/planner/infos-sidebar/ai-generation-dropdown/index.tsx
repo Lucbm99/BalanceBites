@@ -13,6 +13,7 @@ import { ApiService } from "@/services/api";
 import { useQuery } from "@tanstack/react-query";
 import { BadgeCent, Bot, BriefcaseBusiness, CirclePercent, Languages, PencilLine } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { BuyCreditsDialog } from "./buy-credits-dialog";
 import { GenerationDialog } from "./generation-dialog";
 
@@ -21,15 +22,15 @@ export const AIGenerationDropdown = () => {
     const [showCreditsDialog, setShowCreditsDialog] = useState(false);
 
     const onAction = (mode: AIGenerationMode) => {
-        // if (!credits) {
-        //     toast.error("Você não tem créditos suficientes para realizar esta ação.", {
-        //         action: {
-        //             label: "Comprar créditos",
-        //             onClick: () => setShowCreditsDialog(true),
-        //         }
-        //     });
-        //     return;
-        // }
+        if (!credits) {
+            toast.error("Você não tem créditos suficientes para realizar esta ação.", {
+                action: {
+                    label: "Comprar créditos",
+                    onClick: () => setShowCreditsDialog(true),
+                }
+            });
+            return;
+        }
     
         setGenerationMode(mode);
     }
