@@ -9,7 +9,7 @@ import {
 } from "./primitive";
 
 export type BaseDialogProps = {
-    children: ReactNode;
+    children?: ReactNode;
     open?: boolean;
     setOpen?: (open: boolean) => void;
 }
