@@ -24,7 +24,7 @@ export default function Home() {
             modelos.
           </p>
 
-          <Link href="/dashboard/food-po" passHref>
+          <Link href="/dashboard/food-planners" passHref>
             <Button className="mt-4">Começar agora</Button>
           </Link>
         </div>
