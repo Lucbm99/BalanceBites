@@ -1,8 +1,8 @@
 import { PlannerDTO } from "@/db/types";
 import { cn } from "@/lib/utils";
+import { formatDistanceToNow } from "date-fns";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { formatDistanceToNow } from "date-fns";
 
 type PlannerCardButtonProps = {
     title: string;
@@ -32,7 +32,7 @@ type PlannerCardProps = {
 }
 
 export const PlannerCard = ({ planner }: PlannerCardProps) => {
-    const formattedLastUpdate = formatDistanceToNow(new Date(planner.updatedAt), { addSufix: true });
+    const formattedLastUpdate = formatDistanceToNow(new Date(planner.updatedAt), { addSuffix: true });
 
     return (
         <Link href={`/dashboard/food-planners/${planner.id}`} className="block w-full">
