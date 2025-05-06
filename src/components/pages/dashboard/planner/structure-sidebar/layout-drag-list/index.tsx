@@ -8,62 +8,6 @@ type LayoutDragListProps = {
 }
 
 const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
-    certifications: {
-        portuguese: "Certificações",
-        english: "Certifications",
-        french: "Certifications",
-        german: "Zertifizierungen",
-        italian: "Certificazioni",
-        spanish: "Certificaciones",
-    },
-    educations: {
-        portuguese: "Educação",
-        english: "Education",
-        french: "Éducation",
-        german: "Bildung",
-        italian: "Istruzione",
-        spanish: "Educación",
-    },
-    experiences: {
-        portuguese: "Experiências",
-        english: "Experiences",
-        french: "Expériences",
-        german: "Erfahrungen",
-        italian: "Esperienze",
-        spanish: "Experiencias",
-    },
-    languages: {
-        portuguese: "Idiomas",
-        english: "Languages",
-        french: "Langues",
-        german: "Sprachen",
-        italian: "Lingue",
-        spanish: "Idiomas",
-    },
-    projects: {
-        portuguese: "Projetos",
-        english: "Projects",
-        french: "Projets",
-        german: "Projekte",
-        italian: "Progetti",
-        spanish: "Proyectos",
-    },
-    skills: {
-        portuguese: "Habilidades",
-        english: "Skills",
-        french: "Compétences",
-        german: "Fähigkeiten",
-        italian: "Abilità",
-        spanish: "Habilidades",
-    },
-    socialMedias: {
-        portuguese: "Redes Sociais",
-        english: "Social Medias",
-        french: "Réseaux Sociaux",
-        german: "Soziale Medien",
-        italian: "Social Media",
-        spanish: "Redes Sociales",
-    },
     summary: {
         portuguese: "Resumo",
         english: "Summary",
@@ -72,6 +16,86 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
         italian: "Sommario",
         spanish: "Resumen",
     },
+    objectives: {
+        portuguese: "Objetivos",
+        english: "Goals",
+        french: "Objectifs",
+        german: "Ziele",
+        italian: "Obiettivi",
+        spanish: "Objetivos"
+    },
+    restrictions: {
+        portuguese: "Restrições",
+        english: "Constraints",
+        french: "Contraintes",
+        german: "Einschränkungen",
+        italian: "Vincoli",
+        spanish: "Restricciones"
+    },
+    preferences: {
+        portuguese: "Preferências",
+        english: "Preferences",
+        french: "Préférences",
+        german: "Präferenzen",
+        italian: "Preferenze",
+        spanish: "Preferencias"
+    }
+    // socialMedias: {
+    //     portuguese: "Redes Sociais",
+    //     english: "Social Medias",
+    //     french: "Réseaux Sociaux",
+    //     german: "Soziale Medien",
+    //     italian: "Social Media",
+    //     spanish: "Redes Sociales",
+    // },
+    // certifications: {
+    //     portuguese: "Certificações",
+    //     english: "Certifications",
+    //     french: "Certifications",
+    //     german: "Zertifizierungen",
+    //     italian: "Certificazioni",
+    //     spanish: "Certificaciones",
+    // },
+    // educations: {
+    //     portuguese: "Educação",
+    //     english: "Education",
+    //     french: "Éducation",
+    //     german: "Bildung",
+    //     italian: "Istruzione",
+    //     spanish: "Educación",
+    // },
+    // experiences: {
+    //     portuguese: "Experiências",
+    //     english: "Experiences",
+    //     french: "Expériences",
+    //     german: "Erfahrungen",
+    //     italian: "Esperienze",
+    //     spanish: "Experiencias",
+    // },
+    // languages: {
+    //     portuguese: "Idiomas",
+    //     english: "Languages",
+    //     french: "Langues",
+    //     german: "Sprachen",
+    //     italian: "Lingue",
+    //     spanish: "Idiomas",
+    // },
+    // projects: {
+    //     portuguese: "Projetos",
+    //     english: "Projects",
+    //     french: "Projets",
+    //     german: "Projekte",
+    //     italian: "Progetti",
+    //     spanish: "Proyectos",
+    // },
+    // skills: {
+    //     portuguese: "Habilidades",
+    //     english: "Skills",
+    //     french: "Compétences",
+    //     german: "Fähigkeiten",
+    //     italian: "Abilità",
+    //     spanish: "Habilidades",
+    // },
 };
 
 export const sectionLabels = labels;

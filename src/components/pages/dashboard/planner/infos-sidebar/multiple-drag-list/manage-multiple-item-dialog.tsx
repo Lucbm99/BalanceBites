@@ -128,109 +128,109 @@ const formConfig: FormConfigObject = {
             className: "min-h-[200px]",
         },
     ],
-    skills: [
-        {
-            label: "Nome",
-            key: "name",
-            required: true,
-        },
-        {
-            label: "Descrição",
-            key: "description",
-        },
-        {
-            label: "Nível",
-            key: "level",
-            fieldType: "slider",
-            fullWidth: true,
-        },
-        {
-            label: "Palavras-chave",
-            key: "keywords",
-            placeholder: "Adicione palavras-chave separadas por vírgula",
-            fieldType: "keywords",
-            fullWidth: true,
-        },
-    ],
-    languages: [
-        {
-            label: "Nome",
-            key: "name",
-            required: true,
-        },
-        {
-            label: "Descrição",
-            key: "description",
-        },
-        {
-            label: "Nível",
-            key: "level",
-            fieldType: "slider",
-            fullWidth: true,
-        },
-    ],
-    certifications: [
-        {
-            label: "Nome",
-            key: "name",
-            required: true,
-        },
-        {
-            label: "Instituição",
-            key: "institution",
-        },
-        {
-            label: "Data",
-            key: "date",
-            placeholder: "Janeiro de 2024",
-        },
-        {
-            label: "Site",
-            key: "website",
-            type: "url",
-        },
-        {
-            label: "Descrição",
-            key: "summary",
-            fieldType: "editor",
-            className: "min-h-[200px]",
-            fullWidth: true,
-        },
-    ],
-    projects: [
-        {
-            label: "Nome",
-            key: "name",
-            required: true,
-        },
-        {
-            label: "Descrição",
-            key: "description",
-        },
-        {
-            label: "Data ou intervalo de datas",
-            key: "date",
-            placeholder: "Janeiro de 2024 - Presente",
-        },
-        {
-            label: "Site",
-            key: "website",
-            type: "url",
-        },
-        {
-            label: "Resumo",
-            key: "summary",
-            fieldType: "editor",
-            className: "min-h-[200px]",
-            fullWidth: true,
-        },
-        {
-            label: "Palavras-chave",
-            key: "keywords",
-            placeholder: "Adicione palavras-chave separadas por vírgula",
-            fieldType: "keywords",
-            fullWidth: true,
-        },
+    // skills: [
+    //     {
+    //         label: "Nome",
+    //         key: "name",
+    //         required: true,
+    //     },
+    //     {
+    //         label: "Descrição",
+    //         key: "description",
+    //     },
+    //     {
+    //         label: "Nível",
+    //         key: "level",
+    //         fieldType: "slider",
+    //         fullWidth: true,
+    //     },
+    //     {
+    //         label: "Palavras-chave",
+    //         key: "keywords",
+    //         placeholder: "Adicione palavras-chave separadas por vírgula",
+    //         fieldType: "keywords",
+    //         fullWidth: true,
+    //     },
+    // ],
+    // languages: [
+    //     {
+    //         label: "Nome",
+    //         key: "name",
+    //         required: true,
+    //     },
+    //     {
+    //         label: "Descrição",
+    //         key: "description",
+    //     },
+    //     {
+    //         label: "Nível",
+    //         key: "level",
+    //         fieldType: "slider",
+    //         fullWidth: true,
+    //     },
+    // ],
+    // certifications: [
+    //     {
+    //         label: "Nome",
+    //         key: "name",
+    //         required: true,
+    //     },
+    //     {
+    //         label: "Instituição",
+    //         key: "institution",
+    //     },
+    //     {
+    //         label: "Data",
+    //         key: "date",
+    //         placeholder: "Janeiro de 2024",
+    //     },
+    //     {
+    //         label: "Site",
+    //         key: "website",
+    //         type: "url",
+    //     },
+    //     {
+    //         label: "Descrição",
+    //         key: "summary",
+    //         fieldType: "editor",
+    //         className: "min-h-[200px]",
+    //         fullWidth: true,
+    //     },
+    // ],
+    // projects: [
+    //     {
+    //         label: "Nome",
+    //         key: "name",
+    //         required: true,
+    //     },
+    //     {
+    //         label: "Descrição",
+    //         key: "description",
+    //     },
+    //     {
+    //         label: "Data ou intervalo de datas",
+    //         key: "date",
+    //         placeholder: "Janeiro de 2024 - Presente",
+    //     },
+    //     {
+    //         label: "Site",
+    //         key: "website",
+    //         type: "url",
+    //     },
+    //     {
+    //         label: "Resumo",
+    //         key: "summary",
+    //         fieldType: "editor",
+    //         className: "min-h-[200px]",
+    //         fullWidth: true,
+    //     },
+    //     {
+    //         label: "Palavras-chave",
+    //         key: "keywords",
+    //         placeholder: "Adicione palavras-chave separadas por vírgula",
+    //         fieldType: "keywords",
+    //         fullWidth: true,
+    //     },
     ],
 };
 

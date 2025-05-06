@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { BicepsFlexed, BriefcaseBusiness, FileBadge2, Globe, GraduationCap, Languages, Share2 } from "lucide-react";
+import { BriefcaseBusiness, GraduationCap, Share2 } from "lucide-react";
 import { Fragment, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
@@ -14,54 +14,54 @@ export const MultiplesSections = () => {
 
     const sectionsKeys: MultipleDragItemData[] = [
         {
-            formKey: "socialMedias",
-            title: "Redes Sociais",
+            formKey: "objectives",
+            title: "Objetivos",
             icon: Share2,
             titleKey: "name",
             descriptionKey: "username",
         },
         {
-            formKey: "experiences",
-            title: "Experiências",
+            formKey: "restrictions",
+            title: "Restrições Alimentares",
             icon: BriefcaseBusiness,
             titleKey: "company",
             descriptionKey: "position",
         },
         {
-            formKey: "educations",
-            title: "Educação",
+            formKey: "preferences",
+            title: "Preferências alimentares",
             icon: GraduationCap,
             titleKey: "institution",
             descriptionKey: "degree",
         },
-        {
-            formKey: "skills",
-            title: "Habilidades",
-            icon: BicepsFlexed,
-            titleKey: "name",
-            descriptionKey: "description",
-        },
-        {
-            formKey: "languages",
-            title: "Idiomas",
-            icon: Languages,
-            titleKey: "name",
-            descriptionKey: "description",
-        },
-        {
-            formKey: "certifications",
-            title: "Certificações",
-            icon: FileBadge2,
-            titleKey: "name",
-            descriptionKey: "institution",
-        },
-        {
-            formKey: "projects",
-            title: "Projetos",
-            icon: Globe,
-            titleKey: "name",
-            descriptionKey: "description",
-        },
+        // {
+        //     formKey: "skills",
+        //     title: "Habilidades",
+        //     icon: BicepsFlexed,
+        //     titleKey: "name",
+        //     descriptionKey: "description",
+        // },
+        // {
+        //     formKey: "languages",
+        //     title: "Idiomas",
+        //     icon: Languages,
+        //     titleKey: "name",
+        //     descriptionKey: "description",
+        // },
+        // {
+        //     formKey: "certifications",
+        //     title: "Certificações",
+        //     icon: FileBadge2,
+        //     titleKey: "name",
+        //     descriptionKey: "institution",
+        // },
+        // {
+        //     formKey: "projects",
+        //     title: "Projetos",
+        //     icon: Globe,
+        //     titleKey: "name",
+        //     descriptionKey: "description",
+        // },
     ];
 
     const onEdit = (section: MultipleDragItemData, index: number) => {
