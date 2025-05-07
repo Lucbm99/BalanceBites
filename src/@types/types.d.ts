@@ -87,14 +87,14 @@ type PlannerContentData = {
     image: PlannerImageData;
     infos: PlannerInfosData;
     summary: string;
-    objectives: Partial<PlannerObjectivesData>[];
-    restrictions: Partial<PlannerRestrictionsData>[];
-    preferences: Partial<PlannerPreferencesData>[];
+    objectives: Partial<PlannerObjectivesData>[]; //socialMedia
+    restrictions: Partial<PlannerRestrictionsData>[]; //experiences
+    preferences: Partial<PlannerPreferencesData>[]; //education
 
     //ALTERAR ESSES DADOS EM OUTROS ARQUIVOS
-    // skills: Partial<PlannerSkillData>[]; - OBJECTIVES
-    // languages: Partial<PlannerLanguageData>[]; - RESTRICTIONS
-    // certifications: Partial<PlannerCertificationData>[]; - PREFERENCES
+    // skills: Partial<PlannerSkillData>[];
+    // languages: Partial<PlannerLanguageData>[];
+    // certifications: Partial<PlannerCertificationData>[];
     // projects: Partial<PlannerProjectData>[];
 }
 

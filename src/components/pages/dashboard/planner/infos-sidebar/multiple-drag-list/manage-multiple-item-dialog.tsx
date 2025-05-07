@@ -34,99 +34,101 @@ type FormConfigObject = {
 }
 
 const formConfig: FormConfigObject = {
-    socialMedias: [
+    objectives: [ //socialMedias
         {
-            label: "Rede",
-            key: "name",
-            placeholder: "LinkedIn",
+            label: "Objetivos alimentares",
+            key: "objective",
+            placeholder: "Escreva seus principais objetivos para seu plano alimentar...",
             required: true,
         },
-        {
-            label: "Usuário",
-            key: "username",
-            placeholder: "seu-usuario",
-            required: true,
-        },
-        {
-            label: "Site",
-            key: "url",
-            placeholder: "https://linkedin.com/in/seu-usuario",
-            type: "url",
-            fullWidth: true,
-        },
-        {
-            label: "Ícone",
-            key: "icon",
-            placeholder: "linkedin",
-            fieldType: "icon",
-            fullWidth: true,
-        },
+        // {
+        //     label: "Usuário",
+        //     key: "username",
+        //     placeholder: "seu-usuario",
+        //     required: true,
+        // },
+        // {
+        //     label: "Site",
+        //     key: "url",
+        //     placeholder: "https://linkedin.com/in/seu-usuario",
+        //     type: "url",
+        //     fullWidth: true,
+        // },
+        // {
+        //     label: "Ícone",
+        //     key: "icon",
+        //     placeholder: "linkedin",
+        //     fieldType: "icon",
+        //     fullWidth: true,
+        // },
     ],
-    experiences: [
+    restrictions: [ //experiences
         {
-            label: "Empresa",
-            key: "company",
+            label: "Restrições alimentares",
+            key: "restriction",
+            placeholder: "Intolerância a lactose, glúten...",
             required: true,
         },
-        {
-            label: "Posição",
-            key: "position",
-        },
-        {
-            label: "Data ou intervalo de datas",
-            key: "date",
-            placeholder: "Janeiro de 2024 - Presente",
-        },
-        {
-            label: "Localização",
-            key: "location",
-        },
-        {
-            label: "Site",
-            key: "website",
-            type: "url",
-            fullWidth: true,
-        },
-        {
-            label: "Descrição",
-            key: "summary",
-            fieldType: "editor",
-            fullWidth: true,
-            className: "min-h-[200px]",
-        },
+        // {
+        //     label: "Posição",
+        //     key: "position",
+        // },
+        // {
+        //     label: "Data ou intervalo de datas",
+        //     key: "date",
+        //     placeholder: "Janeiro de 2024 - Presente",
+        // },
+        // {
+        //     label: "Localização",
+        //     key: "location",
+        // },
+        // {
+        //     label: "Site",
+        //     key: "website",
+        //     type: "url",
+        //     fullWidth: true,
+        // },
+        // {
+        //     label: "Descrição",
+        //     key: "summary",
+        //     fieldType: "editor",
+        //     fullWidth: true,
+        //     className: "min-h-[200px]",
+        // },
     ],
-    educations: [
+    preferences: [ //education
         {
-            label: "Instituição",
-            key: "institution",
+            label: "Preferências alimentares",
+            key: "preference",
+            placeholder: "Vegano, vegetariano, carnívoro...",
             required: true,
         },
-        {
-            label: "Curso",
-            key: "degree",
-        },
-        {
-            label: "Data ou intervalo de datas",
-            key: "date",
-            placeholder: "Janeiro de 2024 - Presente",
-        },
-        {
-            label: "Localização",
-            key: "location",
-        },
-        {
-            label: "Site",
-            key: "website",
-            type: "url",
-            fullWidth: true,
-        },
-        {
-            label: "Descrição",
-            key: "summary",
-            fieldType: "editor",
-            fullWidth: true,
-            className: "min-h-[200px]",
-        },
+        // {
+        //     label: "Curso",
+        //     key: "degree",
+        // },
+        // {
+        //     label: "Data ou intervalo de datas",
+        //     key: "date",
+        //     placeholder: "Janeiro de 2024 - Presente",
+        // },
+        // {
+        //     label: "Localização",
+        //     key: "location",
+        // },
+        // {
+        //     label: "Site",
+        //     key: "website",
+        //     type: "url",
+        //     fullWidth: true,
+        // },
+        // {
+        //     label: "Descrição",
+        //     key: "summary",
+        //     fieldType: "editor",
+        //     fullWidth: true,
+        //     className: "min-h-[200px]",
+        // },
     ],
     // skills: [
     //     {
@@ -231,7 +233,7 @@ const formConfig: FormConfigObject = {
     //         fieldType: "keywords",
     //         fullWidth: true,
     //     },
-    ],
+    // ],
 };
 
 export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: ManageMultipleItemDialogProps) => {
@@ -288,20 +290,57 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
         })
     }, [data.formKey])
 
+    // const onDelete = () => {
+    //     const currentValue = getValues();
+
+    //     const formKey = data.formKey;
+    //     const currentFieldValue = currentValue.content[formKey] ?? [];
+
+    //     const updatedItems = currentFieldValue.filter(
+    //         (item: any) => item.id !== initialData.id
+    //     )
+
+    //     setValue(`content.${formKey}`, updatedItems);
+    //     setOpen(false);
+    //     toast.success("Item removido com sucesso!");
+    // }
+
     const onDelete = () => {
         const currentValue = getValues();
-
         const formKey = data.formKey;
-        const currentFieldValue = currentValue.content[formKey] ?? [];
 
-        const updatedItems = currentFieldValue.filter(
-            (item: any) => item.id !== initialData.id
-        )
+        let updatedItems;
+
+        switch (formKey) {
+            case "objectives": {
+                const current = currentValue.content.objectives ?? [];
+                updatedItems = current.filter(
+                    (item: any) => item.id !== initialData.id
+                ) as Partial<PlannerObjectivesData>[];
+            break;
+        }
+            case "restrictions": {
+                const current = currentValue.content.restrictions ?? [];
+                updatedItems = current.filter(
+                    (item: any) => item.id !== initialData.id
+                ) as Partial<PlannerRestrictionsData>[];
+            break;
+        }
+            case "preferences": {
+                const current = currentValue.content.preferences ?? [];
+                updatedItems = current.filter(
+                    (item: any) => item.id !== initialData.id
+                ) as Partial<PlannerPreferencesData>[];
+            break;
+        }
+        default:
+            return;
+        }
 
         setValue(`content.${formKey}`, updatedItems);
         setOpen(false);
         toast.success("Item removido com sucesso!");
-    }
+    };
 
     const onSubmit = (formData: any) => {
         const currentValue = getValues();

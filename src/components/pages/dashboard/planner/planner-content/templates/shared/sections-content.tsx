@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Element } from "../../planner-element";
-import { Link } from "./link";
 
 type LevelIndicatorVariant = "dots" | "bars";
 
@@ -63,26 +62,57 @@ export const PlannerSectionContent = ({
   levelIndicatorVariant,
 }: PlannerSectionContentProps) => {
   switch (section.key) {
-    case "socialMedias":
+    // case "objectives": //socialMedias
+    //   return (
+    //     <div className="flex flex-col gap-2 text-sm">
+    //       {content.objectives.map((objective, i) => (
+    //         <Link
+    //           withIcon={false}
+    //           iconColor={linkIconColor}
+    //           href={socialMedia.url}
+    //           key={`social-media-${i}`}
+    //         >
+    //           {socialMedia.icon ? (
+    //             <img
+    //               className="w-3 h-3 object-contain"
+    //               src={`https://cdn.simpleicons.org/${socialMedia.icon}`}
+    //             />
+    //           ) : (
+    //             <strong className="text-xs">{objective.objective}:</strong>
+    //           )}
+    //           {/* {socialMedia.username} */}
+    //         </Link>
+    //       ))}
+    //     </div>
+    //   );
+    case "objectives":
       return (
-        <div className="flex flex-col gap-2 text-sm">
-          {content.socialMedias.map((socialMedia, i) => (
-            <Link
-              withIcon={false}
-              iconColor={linkIconColor}
-              href={socialMedia.url}
-              key={`social-media-${i}`}
+        <div className="flex flex-col gap-4">
+          {content.objectives.map((objective, i) => (
+            <div
+              key={`experience-${i}`}
+              className="text-sm flex flex-col gap-0.5"
             >
-              {socialMedia.icon ? (
-                <img
-                  className="w-3 h-3 object-contain"
-                  src={`https://cdn.simpleicons.org/${socialMedia.icon}`}
-                />
-              ) : (
-                <strong className="text-xs">{socialMedia.name}:</strong>
+              <div className="flex items-center justify-between font-bold">
+                <Element>{objective.objective}</Element>
+                {/* <Element>{experience.date}</Element> */}
+              </div>
+              {/* <div className="flex items-center justify-between">
+                <Element>{experience.position}</Element>
+                <Element>{experience.location}</Element>
+              </div> */}
+              {/* {experience.website && (
+                <Link href={experience.website} iconColor={linkIconColor}>
+                  {experience.website}
+                </Link>
               )}
-              {socialMedia.username}
-            </Link>
+              {experience.summary && (
+                <div
+                  className="text-sm mt-0.5"
+                  dangerouslySetInnerHTML={{ __html: experience.summary }}
+                />
+              )} */}
+            </div>
           ))}
         </div>
       );
@@ -93,23 +123,23 @@ export const PlannerSectionContent = ({
           dangerouslySetInnerHTML={{ __html: content.summary }}
         />
       );
-    case "experiences":
+    case "restrictions":
       return (
         <div className="flex flex-col gap-4">
-          {content.experiences.map((experience, i) => (
+          {content.restrictions.map((restriction, i) => (
             <div
               key={`experience-${i}`}
               className="text-sm flex flex-col gap-0.5"
             >
               <div className="flex items-center justify-between font-bold">
-                <Element>{experience.company}</Element>
-                <Element>{experience.date}</Element>
+                <Element>{restriction.restriction}</Element>
+                {/* <Element>{experience.date}</Element> */}
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <Element>{experience.position}</Element>
                 <Element>{experience.location}</Element>
-              </div>
-              {experience.website && (
+              </div> */}
+              {/* {experience.website && (
                 <Link href={experience.website} iconColor={linkIconColor}>
                   {experience.website}
                 </Link>
@@ -119,24 +149,24 @@ export const PlannerSectionContent = ({
                   className="text-sm mt-0.5"
                   dangerouslySetInnerHTML={{ __html: experience.summary }}
                 />
-              )}
+              )} */}
             </div>
           ))}
         </div>
       );
-    case "educations":
+    case "preferences":
       return (
         <div className="flex flex-col gap-4">
-          {content.educations.map((education, i) => (
+          {content.preferences.map((preference, i) => (
             <div
-              key={`education-${i}`}
+              key={`preference-${i}`}
               className="text-sm flex flex-col gap-0.5"
             >
               <div className="flex items-center justify-between font-bold">
-                <Element>{education.institution}</Element>
-                <Element>{education.date}</Element>
+                <Element>{preference.preference}</Element>
+                {/* <Element>{education.date}</Element> */}
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <Element>{education.degree}</Element>
                 <Element>{education.location}</Element>
               </div>
@@ -150,106 +180,106 @@ export const PlannerSectionContent = ({
                   className="text-sm mt-0.5"
                   dangerouslySetInnerHTML={{ __html: education.summary }}
                 />
-              )}
+              )} */}
             </div>
           ))}
         </div>
       );
-    case "skills":
-      return (
-        <div className="flex flex-col gap-4">
-          {content.skills.map((skill, i) => {
-            const level = skill.level ?? 0;
+    // case "skills":
+    //   return (
+    //     <div className="flex flex-col gap-4">
+    //       {content.skills.map((skill, i) => {
+    //         const level = skill.level ?? 0;
 
-            return (
-              <div key={`skill-${i}`} className="text-sm flex flex-col gap-1">
-                <Element className="font-bold -mb-1.5">{skill.name}</Element>
-                <Element>{skill.description}</Element>
-                <LevelIndicator
-                  level={level}
-                  levelsColor={levelsColor}
-                  className="my-0.5"
-                  variant={levelIndicatorVariant}
-                />
-                <Element className="text-xs">{skill.keywords}</Element>
-              </div>
-            );
-          })}
-        </div>
-      );
-    case "languages":
-      return (
-        <div className="flex flex-col gap-4">
-          {content.languages.map((language, i) => {
-            const level = language.level ?? 0;
+    //         return (
+    //           <div key={`skill-${i}`} className="text-sm flex flex-col gap-1">
+    //             <Element className="font-bold -mb-1.5">{skill.name}</Element>
+    //             <Element>{skill.description}</Element>
+    //             <LevelIndicator
+    //               level={level}
+    //               levelsColor={levelsColor}
+    //               className="my-0.5"
+    //               variant={levelIndicatorVariant}
+    //             />
+    //             <Element className="text-xs">{skill.keywords}</Element>
+    //           </div>
+    //         );
+    //       })}
+    //     </div>
+    //   );
+    // case "languages":
+    //   return (
+    //     <div className="flex flex-col gap-4">
+    //       {content.languages.map((language, i) => {
+    //         const level = language.level ?? 0;
 
-            return (
-              <div
-                key={`language-${i}`}
-                className="text-sm flex flex-col gap-1"
-              >
-                <Element className="font-bold -mb-1.5">{language.name}</Element>
-                <Element>{language.description}</Element>
-                <LevelIndicator level={level} levelsColor={levelsColor} variant={levelIndicatorVariant} />
-              </div>
-            );
-          })}
-        </div>
-      );
-    case "certifications":
-      return (
-        <div className="flex flex-col gap-4">
-          {content.certifications.map((certification, i) => (
-            <div
-              key={`certification-${i}`}
-              className="text-sm flex flex-col gap-0.5"
-            >
-              <div className="flex items-center justify-between font-bold">
-                <Element>{certification.name}</Element>
-                <Element>{certification.date}</Element>
-              </div>
-              <Element>{certification.institution}</Element>
-              {certification.website && (
-                <Link href={certification.website}>
-                  {certification.website}
-                </Link>
-              )}
-              {certification.summary && (
-                <div
-                  className="text-sm mt-0.5"
-                  dangerouslySetInnerHTML={{ __html: certification.summary }}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      );
-    case "projects":
-      return (
-        <div className="flex flex-col gap-4">
-          {content.projects.map((project, i) => (
-            <div key={`project-${i}`} className="text-sm flex flex-col gap-0.5">
-              <div className="flex items-center justify-between font-bold">
-                <Element>{project.name}</Element>
-                <Element>{project.date}</Element>
-              </div>
-              <Element>{project.description}</Element>
-              {project.website && (
-                <Link iconColor={linkIconColor} href={project.website}>
-                  {project.website}
-                </Link>
-              )}
-              {project.summary && (
-                <div
-                  className="text-sm mt-0.5"
-                  dangerouslySetInnerHTML={{ __html: project.summary }}
-                />
-              )}
-              <Element className="text-xs">{project.keywords}</Element>
-            </div>
-          ))}
-        </div>
-      );
+    //         return (
+    //           <div
+    //             key={`language-${i}`}
+    //             className="text-sm flex flex-col gap-1"
+    //           >
+    //             <Element className="font-bold -mb-1.5">{language.name}</Element>
+    //             <Element>{language.description}</Element>
+    //             <LevelIndicator level={level} levelsColor={levelsColor} variant={levelIndicatorVariant} />
+    //           </div>
+    //         );
+    //       })}
+    //     </div>
+    //   );
+    // case "certifications":
+    //   return (
+    //     <div className="flex flex-col gap-4">
+    //       {content.certifications.map((certification, i) => (
+    //         <div
+    //           key={`certification-${i}`}
+    //           className="text-sm flex flex-col gap-0.5"
+    //         >
+    //           <div className="flex items-center justify-between font-bold">
+    //             <Element>{certification.name}</Element>
+    //             <Element>{certification.date}</Element>
+    //           </div>
+    //           <Element>{certification.institution}</Element>
+    //           {certification.website && (
+    //             <Link href={certification.website}>
+    //               {certification.website}
+    //             </Link>
+    //           )}
+    //           {certification.summary && (
+    //             <div
+    //               className="text-sm mt-0.5"
+    //               dangerouslySetInnerHTML={{ __html: certification.summary }}
+    //             />
+    //           )}
+    //         </div>
+    //       ))}
+    //     </div>
+    //   );
+    // case "projects":
+    //   return (
+    //     <div className="flex flex-col gap-4">
+    //       {content.projects.map((project, i) => (
+    //         <div key={`project-${i}`} className="text-sm flex flex-col gap-0.5">
+    //           <div className="flex items-center justify-between font-bold">
+    //             <Element>{project.name}</Element>
+    //             <Element>{project.date}</Element>
+    //           </div>
+    //           <Element>{project.description}</Element>
+    //           {project.website && (
+    //             <Link iconColor={linkIconColor} href={project.website}>
+    //               {project.website}
+    //             </Link>
+    //           )}
+    //           {project.summary && (
+    //             <div
+    //               className="text-sm mt-0.5"
+    //               dangerouslySetInnerHTML={{ __html: project.summary }}
+    //             />
+    //           )}
+    //           <Element className="text-xs">{project.keywords}</Element>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   );
     default:
       return null;
   }

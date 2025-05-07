@@ -15,10 +15,10 @@ type FormData = {
 type GenerationData = {
   headline: string;
   summary: string;
-  skills: {
-    name: string;
-    keywords: string;
-  }[];
+  // skills: {
+  //   name: string;
+  //   keywords: string;
+  // }[];
 };
 
 type GenerateFromJobTitleProps = {
@@ -40,7 +40,7 @@ export const GenerateFromJobTitle = ({
 
       setValue("content.infos.headline", generation.headline);
       setValue("content.summary", generation.summary);
-      setValue("content.skills", generation.skills);
+      // setValue("content.skills", generation.skills);
 
       toast.success("Conteúdo gerado com sucesso!");
 
