@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Link, Mail, MapPin, Phone } from "lucide-react";
+import { Dumbbell, Mail, MapPin, MoveUp, Phone } from "lucide-react";
 
 type BasicInfosProps = {
   infos: PlannerInfosData;
@@ -23,10 +23,18 @@ export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
       href: `mailto:${infos.email}`,
     },
     {
-      icon: Link,
-      value: infos.website,
-      href: infos.website,
+      icon: Dumbbell,
+      value: `${infos.weight} kg`,
     },
+    {
+      icon: MoveUp,
+      value: `${infos.height} m`,
+    },
+    // {
+    //   icon: Link,
+    //   value: infos.website,
+    //   href: infos.website,
+    // },
   ].filter((info) => !!info.value);
 
   if (basicInfos.length === 0) return null;

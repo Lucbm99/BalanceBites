@@ -33,6 +33,8 @@ export const MultipleDragList = ({
         control,
         name: `content.${data.formKey}`,
     });
+
+    console.log("DATA: ", data);
     
     const handleDrag = ({source, destination}: DropResult) => {
         if (!destination) return;
@@ -99,9 +101,9 @@ export const MultipleDragList = ({
                                                                 <p className="text-sm font-title font-bold">
                                                                     {field[titleKey]}
                                                                 </p>
-                                                                <p className="text-xs text-muted-foreground">
+                                                                {/* <p className="text-xs text-muted-foreground">
                                                                     {field[descriptionKey]}
-                                                                </p>
+                                                                </p> */}
                                                             </div>
                                                         </Tooltip>
                                                     </div>

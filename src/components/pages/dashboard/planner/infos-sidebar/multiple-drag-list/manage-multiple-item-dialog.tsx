@@ -21,7 +21,7 @@ type ManageMultipleItemDialogProps = BaseDialogProps & {
 type FormConfig<T> = {
     label: string;
     key: keyof T;
-    fieldType?: "text" | "editor" | "icon" | "slider" | "keywords";
+    fieldType?: "text" | "editor" | "icon" | "slider" | "keywords" | "textarea";
     type?: string;
     placeholder?: string;
     fullWidth?: boolean;
@@ -38,8 +38,9 @@ const formConfig: FormConfigObject = {
         {
             label: "Objetivos alimentares",
             key: "objective",
-            placeholder: "Escreva seus principais objetivos para seu plano alimentar...",
+            placeholder: "Ganho de massa, eliminação de gordura...",
             required: true,
+            fieldType: "text",
         },
         // {
         //     label: "Usuário",
@@ -66,8 +67,9 @@ const formConfig: FormConfigObject = {
         {
             label: "Restrições alimentares",
             key: "restriction",
-            placeholder: "Intolerância a lactose, glúten...",
+            placeholder: "Intolerância à lactose, glúten...",
             required: true,
+            fieldType: "text",
         },
         // {
         //     label: "Posição",
@@ -102,6 +104,7 @@ const formConfig: FormConfigObject = {
             key: "preference",
             placeholder: "Vegano, vegetariano, carnívoro...",
             required: true,
+            fieldType: "text",
         },
         // {
         //     label: "Curso",
@@ -374,7 +377,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
 
     return (
         <Dialog
-            title="Adicionar novo item"
+            title={`${isEditing ? 'Editar item' : 'Adicionar novo item'}`}
             open={open}
             setOpen={setOpen}
             content={
@@ -382,15 +385,19 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
                     onSubmit={methods.handleSubmit(onSubmit)}
                     className="flex flex-col mt-2"
                 >
-                    <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="grid gap-4 mb-4">
                         <FormProvider {...methods}>{formContent}</FormProvider>
                     </div>
 
                     <div className="flex justify-between gap-3 mt-4">
-                        {isEditing && (
-                            <Button variant="destructive" onClick={onDelete}>
-                                Remover
-                            </Button>
+                    {isEditing ? (
+                        <Button variant="destructive" onClick={onDelete}>
+                            Remover
+                        </Button>
+                        ) : (
+                        <Button variant="destructive" onClick={() => setOpen(false)}>
+                            Cancelar
+                        </Button>
                         )}
                         <Button type="submit" className="w-max">
                             {isEditing ? "Salvar" : "Adicionar"}

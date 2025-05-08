@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { BriefcaseBusiness, GraduationCap, Share2 } from "lucide-react";
+import { Ban, Goal, Salad } from "lucide-react";
 import { Fragment, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
@@ -16,23 +16,23 @@ export const MultiplesSections = () => {
         {
             formKey: "objectives",
             title: "Objetivos",
-            icon: Share2,
-            titleKey: "name",
-            descriptionKey: "username",
+            icon: Goal,
+            titleKey: "objective",
+            descriptionKey: "objective",
         },
         {
             formKey: "restrictions",
             title: "Restrições Alimentares",
-            icon: BriefcaseBusiness,
-            titleKey: "company",
-            descriptionKey: "position",
+            icon: Ban,
+            titleKey: "restriction",
+            descriptionKey: "restriction",
         },
         {
             formKey: "preferences",
             title: "Preferências alimentares",
-            icon: GraduationCap,
-            titleKey: "institution",
-            descriptionKey: "degree",
+            icon: Salad,
+            titleKey: "preference",
+            descriptionKey: "preference",
         },
         // {
         //     formKey: "skills",

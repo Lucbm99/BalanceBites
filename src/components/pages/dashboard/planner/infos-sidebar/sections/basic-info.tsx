@@ -19,13 +19,16 @@ export const BasicInfoSection = () => {
 
                     <SwitchField name="content.image.visible" className="mb-2" />
                 </div>
-
-                <InputField label="Nome completo" name="content.infos.fullName" />
+                <div className="col-span-full w-full">
+                    <InputField label="Nome completo" name="content.infos.fullName" />
+                </div>
                 <InputField label="Cabeçalho" name="content.infos.headline" />
                 <InputField label="E-mail" name="content.infos.email" />
-                <InputField label="Site" name="content.infos.website" />
+                {/* <InputField label="Site" name="content.infos.website" /> */}
                 <InputField label="Telefone" name="content.infos.phone" />
-                <InputField label="Localização" name="content.infos.location" />
+                <InputField label="Cidade" name="content.infos.location" />
+                <InputField label="Peso" name="content.infos.weight" />
+                <InputField label="Altura" name="content.infos.height" />
             </div>
         </div>
     )
