@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Dumbbell, Mail, MapPin, MoveUp, Phone } from "lucide-react";
+import { BellRing, Dumbbell, Mail, MapPin, MoveUp, Phone } from "lucide-react";
 
 type BasicInfosProps = {
   infos: PlannerInfosData;
@@ -29,6 +29,10 @@ export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
     {
       icon: MoveUp,
       value: `${infos.height} m`,
+    },
+    {
+      icon: BellRing,
+      value: `LEMBRETE: BEBA, NO MÍNIMO, 2L DE ÁGUA POR DIA.`,
     },
     // {
     //   icon: Link,

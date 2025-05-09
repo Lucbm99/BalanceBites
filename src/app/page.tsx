@@ -17,11 +17,11 @@ export default function Home() {
           <Logo className="w-full max-w-[100px] mb-8" />
 
           <h1 className="font-title font-bold text-5xl max-w-[500px]">
-            Um criador de currículos gratuito e fácil de usar
+            Um planejador alimentar gratuito e simples de usar
           </h1>
           <p className="text-muted-foreground text-lg mt-2">
-            Comece a criar seus currículos de forma rápida e fácil com nossos
-            modelos.
+            Monte seus planos alimentares de forma rápida e prática com nossos modelos<br/>
+            personalizados.
           </p>
 
           <Link href="/dashboard/food-planners" passHref>
