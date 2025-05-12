@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Ban, Goal, Salad } from "lucide-react";
+import { Carrot, Salad, Utensils } from "lucide-react";
 import { Fragment, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
@@ -14,18 +14,18 @@ export const MultiplesSections = () => {
 
     const sectionsKeys: MultipleDragItemData[] = [
         {
-            formKey: "objectives",
-            title: "Objetivos",
-            icon: Goal,
-            titleKey: "objective",
-            descriptionKey: "objective",
+            formKey: "meals",
+            title: "Minhas refeições diárias",
+            icon: Utensils,
+            titleKey: "meals",
+            descriptionKey: "meals",
         },
         {
-            formKey: "restrictions",
-            title: "Restrições Alimentares",
-            icon: Ban,
-            titleKey: "restriction",
-            descriptionKey: "restriction",
+            formKey: "consume",
+            title: "Os alimentos que consumo",
+            icon: Carrot,
+            titleKey: "consume",
+            descriptionKey: "consume",
         },
         {
             formKey: "preferences",

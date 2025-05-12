@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { queryKeys } from "@/constants/query-keys";
 import { ApiService } from "@/services/api";
 import { useQuery } from "@tanstack/react-query";
-import { BadgeCent, Bot, BriefcaseBusiness, CirclePercent, Languages, PencilLine } from "lucide-react";
+import { Apple, BadgeCent, Bot, CirclePercent, Languages, PencilLine } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { BuyCreditsDialog } from "./buy-credits-dialog";
@@ -42,9 +42,9 @@ export const AIGenerationDropdown = () => {
             onClick: () => setShowCreditsDialog(true),
         },
         {
-            label: "Gerar conteúdo para vaga de emprego",
-            icon: BriefcaseBusiness,
-            onClick: () => onAction("JOB_TITLE"),
+            label: "Gerar um cardápio para a dieta",
+            icon: Apple,
+            onClick: () => onAction("GENERATE_MENU"),
         },
         {
             label: "Melhorar e corrigir conteúdo existente",

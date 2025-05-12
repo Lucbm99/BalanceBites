@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { EditorField } from "@/components/ui/editor/field";
 import { InputField } from "@/components/ui/input/field";
 import { queryKeys } from "@/constants/query-keys";
 import { ApiService } from "@/services/api";
@@ -8,26 +7,24 @@ import { useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 
 type FormData = {
-  jobTitle: string;
-  jobDescription: string;
+  goal: string;
+  dailyMeals: number;
 };
 
 type GenerationData = {
   headline: string;
   summary: string;
-  // skills: {
-  //   name: string;
-  //   keywords: string;
-  // }[];
+  // meal: [];
+  // consume: [];
 };
 
-type GenerateFromJobTitleProps = {
+type GenerateFromMenuProps = {
   onClose: () => void;
 };
 
-export const GenerateFromJobTitle = ({
+export const GenerateFromMenu = ({
   onClose,
-}: GenerateFromJobTitleProps) => {
+}: GenerateFromMenuProps) => {
   const { control, handleSubmit } = useForm<FormData>();
   const { setValue } = useFormContext<PlannerData>();
 
@@ -40,7 +37,8 @@ export const GenerateFromJobTitle = ({
 
       setValue("content.infos.headline", generation.headline);
       setValue("content.summary", generation.summary);
-      // setValue("content.skills", generation.skills);
+      // setValue("content.meals", generation.meal);
+      // setValue("content.consume", generation.consume);
 
       toast.success("Conteúdo gerado com sucesso!");
 
@@ -58,18 +56,25 @@ export const GenerateFromJobTitle = ({
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <InputField
         control={control}
-        name="jobTitle"
-        label="Título da vaga"
-        placeholder="Desenvolvedor Front-end"
+        name="goal"
+        label="Objetivo"
+        placeholder="Perda de gordura, ganho de massa"
         required
       />
-      <EditorField
+      <InputField
         control={control}
-        name="jobDescription"
-        label="Descrição da vaga (Opcional)"
-        className="min-h-[200px] max-h-[300px]"
+        name="restrictions"
+        label="Restrições alimentares"
+        placeholder="Intolerância à lactose, a glúten."
       />
-
+      <InputField
+        control={control}
+        name="dailyMeals"
+        label="Quantidade de refeições diárias, no novo plano"
+        type="number"
+        required
+      />
+      
       <Button
         className="w-max ml-auto"
         type="submit"

@@ -6,9 +6,10 @@ type PlannerDownloadPayload = {
     structure: PlannerStructureData;
 }
 
-type AIGenerationPayload = {
-    jobTitle: string;
-    jobDescription: string;
+type AIGenerationMenuPayload = {
+    goal: string;
+    restriction?: string; 
+    dailyMeals: number;
 };
 
 type AiTranslationPayload = {
@@ -24,8 +25,8 @@ const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     return window.URL.createObjectURL(data);
 };
 
-const generateContentForJob = async (payload: AIGenerationPayload) => {
-    const { data } = await api.post("/generate/job-title", payload);
+const generateContentForJob = async (payload: AIGenerationMenuPayload) => {
+    const { data } = await api.post("/generate/menu", payload);
     
     return data;
 }

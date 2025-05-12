@@ -34,11 +34,11 @@ type FormConfigObject = {
 }
 
 const formConfig: FormConfigObject = {
-    objectives: [ //socialMedias
+    meals: [ //socialMedias
         {
-            label: "Objetivos alimentares",
-            key: "objective",
-            placeholder: "Ganho de massa, eliminação de gordura...",
+            label: "Refeições diárias",
+            key: "meals",
+            placeholder: "Café da manhã, almoço",
             required: true,
             fieldType: "text",
         },
@@ -63,11 +63,11 @@ const formConfig: FormConfigObject = {
         //     fullWidth: true,
         // },
     ],
-    restrictions: [ //experiences
+    consume: [ //experiences
         {
-            label: "Restrições alimentares",
-            key: "restriction",
-            placeholder: "Intolerância à lactose, glúten...",
+            label: "Alimentos consumidos nas refeições",
+            key: "consume",
+            placeholder: "Café da manhã - pão, fruta...",
             required: true,
             fieldType: "text",
         },
@@ -315,18 +315,18 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
         let updatedItems;
 
         switch (formKey) {
-            case "objectives": {
-                const current = currentValue.content.objectives ?? [];
+            case "meals": {
+                const current = currentValue.content.meals ?? [];
                 updatedItems = current.filter(
                     (item: any) => item.id !== initialData.id
-                ) as Partial<PlannerObjectivesData>[];
+                ) as Partial<PlannerMealsData>[];
             break;
         }
-            case "restrictions": {
-                const current = currentValue.content.restrictions ?? [];
+            case "consume": {
+                const current = currentValue.content.consume ?? [];
                 updatedItems = current.filter(
                     (item: any) => item.id !== initialData.id
-                ) as Partial<PlannerRestrictionsData>[];
+                ) as Partial<PlannerConsumeData>[];
             break;
         }
             case "preferences": {

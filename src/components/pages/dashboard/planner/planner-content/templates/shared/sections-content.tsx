@@ -85,16 +85,16 @@ export const PlannerSectionContent = ({
     //       ))}
     //     </div>
     //   );
-    case "objectives":
+    case "meals":
       return (
         <div className="flex flex-col gap-4">
-          {content.objectives.map((objective, i) => (
+          {content.meals.map((meal, i) => (
             <div
               key={`experience-${i}`}
               className="text-sm flex flex-col gap-0.5"
             >
               <div className="flex items-center justify-between font-bold">
-                <Element>{objective.objective}</Element>
+                <Element>{meal.meals}</Element>
                 {/* <Element>{experience.date}</Element> */}
               </div>
               {/* <div className="flex items-center justify-between">
@@ -123,16 +123,16 @@ export const PlannerSectionContent = ({
           dangerouslySetInnerHTML={{ __html: content.summary }}
         />
       );
-    case "restrictions":
+    case "consume":
       return (
         <div className="flex flex-col gap-4">
-          {content.restrictions.map((restriction, i) => (
+          {content.consume.map((consume_list, i) => (
             <div
               key={`experience-${i}`}
               className="text-sm flex flex-col gap-0.5"
             >
               <div className="flex items-center justify-between font-bold">
-                <Element>{restriction.restriction}</Element>
+                <Element>{consume_list.consume}</Element>
                 {/* <Element>{experience.date}</Element> */}
               </div>
               {/* <div className="flex items-center justify-between">

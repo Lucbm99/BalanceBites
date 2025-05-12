@@ -20,9 +20,9 @@ type PlannerInfosData = {
 //     icon: string;
 // };
 
-//Sessão objetivos
-type PlannerObjectivesData = {
-    objective: string;
+//Sessão alimentos
+type PlannerMealsData = {
+    meals: string;
 };
 
 //type PlannerExperienceData = {
@@ -35,8 +35,8 @@ type PlannerObjectivesData = {
 //};
 
 // Sessão restrições alimentares
-type PlannerRestrictionsData = {
-    restriction: string;
+type PlannerConsumeData = {
+    consume: string;
 };
 
 // type PlannerEducationData = {
@@ -87,8 +87,8 @@ type PlannerContentData = {
     image: PlannerImageData;
     infos: PlannerInfosData;
     summary: string;
-    objectives: Partial<PlannerObjectivesData>[]; //socialMedia
-    restrictions: Partial<PlannerRestrictionsData>[]; //experiences
+    meals: Partial<PlannerMealsData>[]; //socialMedia
+    consume: Partial<PlannerConsumeData>[]; //experiences
     preferences: Partial<PlannerPreferencesData>[]; //education
 
     //ALTERAR ESSES DADOS EM OUTROS ARQUIVOS
@@ -122,8 +122,8 @@ type PlannerData = {
 
 type PlannerSections =
     | "summary"
-    | "objectives"
-    | "restrictions"
+    | "meals"
+    | "consume"
     | "preferences";
     // | "skills"
     // | "languages"
@@ -132,4 +132,4 @@ type PlannerSections =
 
 type PlannerTemplates = "eevee" | "onix" | "jynx" | "ditto";
 
-type AIGenerationMode = "JOB_TITLE" | "FIX_CONTENT" | "TRANSLATE_CONTENT";
+type AIGenerationMode = "GENERATE_MENU" | "FIX_CONTENT" | "TRANSLATE_CONTENT";

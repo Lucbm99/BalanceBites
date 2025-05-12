@@ -16,21 +16,21 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
         italian: "Sommario",
         spanish: "Resumen",
     },
-    objectives: {
-        portuguese: "Objetivos",
-        english: "Goals",
-        french: "Objectifs",
-        german: "Ziele",
-        italian: "Obiettivi",
-        spanish: "Objetivos"
+    meals: {
+        portuguese: "Refeições",
+        english: "Meals",
+        french: "Repas",
+        german: "Mahlzeiten",
+        italian: "Pasti",
+        spanish: "Comidas"
     },
-    restrictions: {
-        portuguese: "Restrições",
-        english: "Constraints",
-        french: "Contraintes",
-        german: "Einschränkungen",
-        italian: "Vincoli",
-        spanish: "Restricciones"
+    consume: {
+        portuguese: "Alimentos consumidos",
+        english: "Consumed foods",
+        french: "Aliments consommés",
+        german: "Verzehrte Lebensmittel",
+        italian: "Alimenti consumati",
+        spanish: "Alimentos consumidos"
     },
     preferences: {
         portuguese: "Preferências",

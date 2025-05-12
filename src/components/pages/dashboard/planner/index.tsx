@@ -43,8 +43,8 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
                 weight: "",
                 height: "",
             },
-            objectives: [],
-            restrictions: [],
+            meals: [],
+            consume: [],
             preferences: [],
             // languages: [],
             // projects: [],
@@ -58,8 +58,8 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
             layout: {
                 mainSections: [
                     { key: "summary" },
-                    { key: "objectives" },
-                    { key: "restrictions" },
+                    { key: "meals" },
+                    { key: "consume" },
                     { key: "preferences" },
                 ],
                 // sidebarSections: [{ key: "languages" }, { key: "skills" }],
