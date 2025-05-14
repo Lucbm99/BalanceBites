@@ -8,6 +8,7 @@ import { toast } from "sonner";
 
 type FormData = {
   goal: string;
+  restrictions: string;
   dailyMeals: number;
 };
 

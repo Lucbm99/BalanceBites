@@ -98,11 +98,11 @@ const formConfig: FormConfigObject = {
         //     className: "min-h-[200px]",
         // },
     ],
-    preferences: [ //education
+    notes: [ //education
         {
-            label: "Preferências alimentares",
-            key: "preference",
-            placeholder: "Vegano, vegetariano, carnívoro...",
+            label: "Observações",
+            key: "notes",
+            placeholder: "não como pão, não como feijão...",
             required: true,
             fieldType: "text",
         },
@@ -329,11 +329,11 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
                 ) as Partial<PlannerConsumeData>[];
             break;
         }
-            case "preferences": {
-                const current = currentValue.content.preferences ?? [];
+            case "notes": {
+                const current = currentValue.content.notes ?? [];
                 updatedItems = current.filter(
                     (item: any) => item.id !== initialData.id
-                ) as Partial<PlannerPreferencesData>[];
+                ) as Partial<PlannerNotesData>[];
             break;
         }
         default:

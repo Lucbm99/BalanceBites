@@ -34,7 +34,7 @@ export const POST = async (request: Request) => {
             Estrutura (Gere um JSON válido e bem formatado):
             {
               summary: "Campo usado para sobre mim, usando metodologia tipo STAR, focando no objetivo pessoal que o usuário deseja alcançar. Não incluir palavras como "Tarefa", "Ação", "Resultado".",
-              headline: "Headline curto em poucas palavras para ficar abaixo do nome do atleta. Normalmente é uma curta descrição do que ele necessita. Deixar somente a primeira letra do título maiúscula, tal como: "Plano alimentar estratégico para redução de massa magra."",
+              headline: "Headline curto em poucas palavras para ficar abaixo do nome do atleta. Normalmente é uma curta descrição do que ele necessita. Deixar somente a primeira letra do título maiúscula, tal como: "Plano alimentar estratégico para redução de massa magra".",
               // skills: [
                 //   {
                 //     name: "Nome da habilidade mais relevante para a vaga.",

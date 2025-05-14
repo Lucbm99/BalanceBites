@@ -8,7 +8,7 @@ type PlannerDownloadPayload = {
 
 type AIGenerationMenuPayload = {
     goal: string;
-    restriction?: string; 
+    restrictions: string;
     dailyMeals: number;
 };
 

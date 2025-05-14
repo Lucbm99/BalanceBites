@@ -32,13 +32,13 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
         italian: "Alimenti consumati",
         spanish: "Alimentos consumidos"
     },
-    preferences: {
-        portuguese: "Preferências",
-        english: "Preferences",
-        french: "Préférences",
-        german: "Präferenzen",
-        italian: "Preferenze",
-        spanish: "Preferencias"
+    notes: {
+        portuguese: "Observações",
+        english: "Notes",
+        french: "Remarques",
+        german: "Anmerkungen",
+        italian: "Osservazioni",
+        spanish: "Observaciones"
     }
     // socialMedias: {
     //     portuguese: "Redes Sociais",

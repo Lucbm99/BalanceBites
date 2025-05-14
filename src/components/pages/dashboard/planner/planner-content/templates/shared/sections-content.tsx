@@ -154,16 +154,16 @@ export const PlannerSectionContent = ({
           ))}
         </div>
       );
-    case "preferences":
+    case "notes":
       return (
         <div className="flex flex-col gap-4">
-          {content.preferences.map((preference, i) => (
+          {content.notes.map((note, i) => (
             <div
-              key={`preference-${i}`}
+              key={`note-${i}`}
               className="text-sm flex flex-col gap-0.5"
             >
               <div className="flex items-center justify-between font-bold">
-                <Element>{preference.preference}</Element>
+                <Element>{note.notes}</Element>
                 {/* <Element>{education.date}</Element> */}
               </div>
               {/* <div className="flex items-center justify-between">

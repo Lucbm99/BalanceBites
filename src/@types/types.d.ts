@@ -49,8 +49,8 @@ type PlannerConsumeData = {
 // };
 
 // Sessão preferências alimentares
-type PlannerPreferencesData = {
-    preference: string;
+type PlannerNotesData = {
+    notes: string;
 };
 
 // type PlannerSkillData = {
@@ -89,7 +89,7 @@ type PlannerContentData = {
     summary: string;
     meals: Partial<PlannerMealsData>[]; //socialMedia
     consume: Partial<PlannerConsumeData>[]; //experiences
-    preferences: Partial<PlannerPreferencesData>[]; //education
+    notes: Partial<PlannerNotesData>[]; //education
 
     //ALTERAR ESSES DADOS EM OUTROS ARQUIVOS
     // skills: Partial<PlannerSkillData>[];
@@ -124,7 +124,7 @@ type PlannerSections =
     | "summary"
     | "meals"
     | "consume"
-    | "preferences";
+    | "notes";
     // | "skills"
     // | "languages"
     // | "certifications"

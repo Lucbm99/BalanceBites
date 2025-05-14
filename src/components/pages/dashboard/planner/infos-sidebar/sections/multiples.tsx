@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Carrot, Salad, Utensils } from "lucide-react";
+import { Carrot, SearchCheck, Utensils } from "lucide-react";
 import { Fragment, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
@@ -28,11 +28,11 @@ export const MultiplesSections = () => {
             descriptionKey: "consume",
         },
         {
-            formKey: "preferences",
+            formKey: "notes",
             title: "Preferências alimentares",
-            icon: Salad,
-            titleKey: "preference",
-            descriptionKey: "preference",
+            icon: SearchCheck,
+            titleKey: "notes",
+            descriptionKey: "notes",
         },
         // {
         //     formKey: "skills",
