@@ -31,7 +31,7 @@ export const GenerateFromMenu = ({
   const queryClient = useQueryClient();
 
   const { mutate: handleGenerate, isPending } = useMutation({
-    mutationFn: ApiService.generateContentForJob,
+    mutationFn: ApiService.generateContentForMenu,
     onSuccess: (data) => {
       const generation = JSON.parse(data.data) as GenerationData;
 

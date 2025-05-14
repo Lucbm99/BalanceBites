@@ -25,7 +25,7 @@ const getPlannerURL = async (payload: PlannerDownloadPayload) => {
     return window.URL.createObjectURL(data);
 };
 
-const generateContentForJob = async (payload: AIGenerationMenuPayload) => {
+const generateContentForMenu = async (payload: AIGenerationMenuPayload) => {
     const { data } = await api.post("/generate/menu", payload);
     
     return data;
@@ -67,7 +67,7 @@ const getPortalUrl = async (currentPathname: string) => {
 
 export const ApiService = {
     getPlannerURL,
-    generateContentForJob,
+    generateContentForMenu,
     fixContent,
     translate,
     getCredits,

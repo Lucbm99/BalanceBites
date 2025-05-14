@@ -33,8 +33,6 @@ export const MultipleDragList = ({
         control,
         name: `content.${data.formKey}`,
     });
-
-    console.log("DATA: ", data);
     
     const handleDrag = ({source, destination}: DropResult) => {
         if (!destination) return;

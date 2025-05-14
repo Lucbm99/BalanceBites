@@ -22,7 +22,7 @@ export const MultiplesSections = () => {
         },
         {
             formKey: "consume",
-            title: "Os alimentos que consumo",
+            title: "Alimentos que consumo",
             icon: Carrot,
             titleKey: "consume",
             descriptionKey: "consume",

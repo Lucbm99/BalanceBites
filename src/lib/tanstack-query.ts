@@ -31,7 +31,7 @@ export const useTanstackQuery = () => {
                     const errorMessage = handleErrorMessage(error);
                     toast.error(errorMessage);
                     
-                    console.log(error.message)
+                    console.log(error.message);
                 }
             })
         })
