@@ -65,7 +65,6 @@ export const POST = async (request: Request) => {
 
     return Response.json({ received: true });
     } catch (error) {
-        // console.error(error);
         return Response.json({ error }, { status: 500 });
     }
 };

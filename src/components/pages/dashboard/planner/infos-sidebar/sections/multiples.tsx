@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Carrot, SearchCheck, Utensils } from "lucide-react";
+import { Carrot, ListChecks, SearchCheck, Utensils } from "lucide-react";
 import { Fragment, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
@@ -29,36 +29,22 @@ export const MultiplesSections = () => {
         },
         {
             formKey: "notes",
-            title: "Preferências alimentares",
+            title: "Observações",
             icon: SearchCheck,
             titleKey: "notes",
             descriptionKey: "notes",
         },
-        // {
-        //     formKey: "skills",
-        //     title: "Habilidades",
-        //     icon: BicepsFlexed,
-        //     titleKey: "name",
-        //     descriptionKey: "description",
-        // },
+        {
+            formKey: "products",
+            title: "Lista de compras",
+            icon: ListChecks,
+            titleKey: "products",
+            descriptionKey: "products",
+        },
         // {
         //     formKey: "languages",
         //     title: "Idiomas",
         //     icon: Languages,
-        //     titleKey: "name",
-        //     descriptionKey: "description",
-        // },
-        // {
-        //     formKey: "certifications",
-        //     title: "Certificações",
-        //     icon: FileBadge2,
-        //     titleKey: "name",
-        //     descriptionKey: "institution",
-        // },
-        // {
-        //     formKey: "projects",
-        //     title: "Projetos",
-        //     icon: Globe,
         //     titleKey: "name",
         //     descriptionKey: "description",
         // },

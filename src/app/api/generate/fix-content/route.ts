@@ -21,7 +21,7 @@ export const POST = async (request: Request) => {
     const { content } = schema.parse(body);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-pro-exp-03-25",
+      model: "gemini-2.5-pro-preview-03-25",
       contents: `
           Baseado no JSON abaixo, avalie todos os campos alterando o conteúdo de todos eles, aprimorando o texto para parecer mais claro e profissional, pois será usado em currículos.
           Também corrija erros gramaticais e de concordância, se necessário.

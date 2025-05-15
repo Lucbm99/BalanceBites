@@ -15,8 +15,9 @@ type FormData = {
 type GenerationData = {
   headline: string;
   summary: string;
-  // meal: [];
-  // consume: [];
+  meal: [{}];
+  consume: [{}];
+  notes: [{}];
 };
 
 type GenerateFromMenuProps = {
@@ -38,8 +39,9 @@ export const GenerateFromMenu = ({
 
       setValue("content.infos.headline", generation.headline);
       setValue("content.summary", generation.summary);
-      // setValue("content.meals", generation.meal);
-      // setValue("content.consume", generation.consume);
+      setValue("content.meals", generation.meal);
+      setValue("content.consume", generation.consume);
+      setValue("content.notes", generation.notes);
 
       toast.success("Conteúdo gerado com sucesso!");
 

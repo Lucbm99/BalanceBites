@@ -34,7 +34,7 @@ type FormConfigObject = {
 }
 
 const formConfig: FormConfigObject = {
-    meals: [ //socialMedias
+    meals: [
         {
             label: "Refeições diárias",
             key: "meals",
@@ -42,28 +42,8 @@ const formConfig: FormConfigObject = {
             required: true,
             fieldType: "text",
         },
-        // {
-        //     label: "Usuário",
-        //     key: "username",
-        //     placeholder: "seu-usuario",
-        //     required: true,
-        // },
-        // {
-        //     label: "Site",
-        //     key: "url",
-        //     placeholder: "https://linkedin.com/in/seu-usuario",
-        //     type: "url",
-        //     fullWidth: true,
-        // },
-        // {
-        //     label: "Ícone",
-        //     key: "icon",
-        //     placeholder: "linkedin",
-        //     fieldType: "icon",
-        //     fullWidth: true,
-        // },
     ],
-    consume: [ //experiences
+    consume: [
         {
             label: "Alimentos consumidos nas refeições",
             key: "consume",
@@ -71,34 +51,8 @@ const formConfig: FormConfigObject = {
             required: true,
             fieldType: "text",
         },
-        // {
-        //     label: "Posição",
-        //     key: "position",
-        // },
-        // {
-        //     label: "Data ou intervalo de datas",
-        //     key: "date",
-        //     placeholder: "Janeiro de 2024 - Presente",
-        // },
-        // {
-        //     label: "Localização",
-        //     key: "location",
-        // },
-        // {
-        //     label: "Site",
-        //     key: "website",
-        //     type: "url",
-        //     fullWidth: true,
-        // },
-        // {
-        //     label: "Descrição",
-        //     key: "summary",
-        //     fieldType: "editor",
-        //     fullWidth: true,
-        //     className: "min-h-[200px]",
-        // },
     ],
-    notes: [ //education
+    notes: [
         {
             label: "Observações",
             key: "notes",
@@ -106,57 +60,16 @@ const formConfig: FormConfigObject = {
             required: true,
             fieldType: "text",
         },
-        // {
-        //     label: "Curso",
-        //     key: "degree",
-        // },
-        // {
-        //     label: "Data ou intervalo de datas",
-        //     key: "date",
-        //     placeholder: "Janeiro de 2024 - Presente",
-        // },
-        // {
-        //     label: "Localização",
-        //     key: "location",
-        // },
-        // {
-        //     label: "Site",
-        //     key: "website",
-        //     type: "url",
-        //     fullWidth: true,
-        // },
-        // {
-        //     label: "Descrição",
-        //     key: "summary",
-        //     fieldType: "editor",
-        //     fullWidth: true,
-        //     className: "min-h-[200px]",
-        // },
     ],
-    // skills: [
-    //     {
-    //         label: "Nome",
-    //         key: "name",
-    //         required: true,
-    //     },
-    //     {
-    //         label: "Descrição",
-    //         key: "description",
-    //     },
-    //     {
-    //         label: "Nível",
-    //         key: "level",
-    //         fieldType: "slider",
-    //         fullWidth: true,
-    //     },
-    //     {
-    //         label: "Palavras-chave",
-    //         key: "keywords",
-    //         placeholder: "Adicione palavras-chave separadas por vírgula",
-    //         fieldType: "keywords",
-    //         fullWidth: true,
-    //     },
-    // ],
+    products: [
+        {
+            label: "Produtos que compro no mercado",
+            key: "products",
+            placeholder: "não como pão, não como feijão...",
+            required: true,
+            fieldType: "text",
+        },
+    ],
     // languages: [
     //     {
     //         label: "Nome",
@@ -171,69 +84,6 @@ const formConfig: FormConfigObject = {
     //         label: "Nível",
     //         key: "level",
     //         fieldType: "slider",
-    //         fullWidth: true,
-    //     },
-    // ],
-    // certifications: [
-    //     {
-    //         label: "Nome",
-    //         key: "name",
-    //         required: true,
-    //     },
-    //     {
-    //         label: "Instituição",
-    //         key: "institution",
-    //     },
-    //     {
-    //         label: "Data",
-    //         key: "date",
-    //         placeholder: "Janeiro de 2024",
-    //     },
-    //     {
-    //         label: "Site",
-    //         key: "website",
-    //         type: "url",
-    //     },
-    //     {
-    //         label: "Descrição",
-    //         key: "summary",
-    //         fieldType: "editor",
-    //         className: "min-h-[200px]",
-    //         fullWidth: true,
-    //     },
-    // ],
-    // projects: [
-    //     {
-    //         label: "Nome",
-    //         key: "name",
-    //         required: true,
-    //     },
-    //     {
-    //         label: "Descrição",
-    //         key: "description",
-    //     },
-    //     {
-    //         label: "Data ou intervalo de datas",
-    //         key: "date",
-    //         placeholder: "Janeiro de 2024 - Presente",
-    //     },
-    //     {
-    //         label: "Site",
-    //         key: "website",
-    //         type: "url",
-    //     },
-    //     {
-    //         label: "Resumo",
-    //         key: "summary",
-    //         fieldType: "editor",
-    //         className: "min-h-[200px]",
-    //         fullWidth: true,
-    //     },
-    //     {
-    //         label: "Palavras-chave",
-    //         key: "keywords",
-    //         placeholder: "Adicione palavras-chave separadas por vírgula",
-    //         fieldType: "keywords",
     //         fullWidth: true,
     //     },
     // ],
@@ -334,6 +184,13 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
                 updatedItems = current.filter(
                     (item: any) => item.id !== initialData.id
                 ) as Partial<PlannerNotesData>[];
+            break;
+        }
+            case "products": {
+                const current = currentValue.content.products ?? [];
+                updatedItems = current.filter(
+                    (item: any) => item.id !== initialData.id
+                ) as Partial<PlannerShoppingListData>[];
             break;
         }
         default:

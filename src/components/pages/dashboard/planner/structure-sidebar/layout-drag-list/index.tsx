@@ -39,39 +39,15 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
         german: "Anmerkungen",
         italian: "Osservazioni",
         spanish: "Observaciones"
-    }
-    // socialMedias: {
-    //     portuguese: "Redes Sociais",
-    //     english: "Social Medias",
-    //     french: "Réseaux Sociaux",
-    //     german: "Soziale Medien",
-    //     italian: "Social Media",
-    //     spanish: "Redes Sociales",
-    // },
-    // certifications: {
-    //     portuguese: "Certificações",
-    //     english: "Certifications",
-    //     french: "Certifications",
-    //     german: "Zertifizierungen",
-    //     italian: "Certificazioni",
-    //     spanish: "Certificaciones",
-    // },
-    // educations: {
-    //     portuguese: "Educação",
-    //     english: "Education",
-    //     french: "Éducation",
-    //     german: "Bildung",
-    //     italian: "Istruzione",
-    //     spanish: "Educación",
-    // },
-    // experiences: {
-    //     portuguese: "Experiências",
-    //     english: "Experiences",
-    //     french: "Expériences",
-    //     german: "Erfahrungen",
-    //     italian: "Esperienze",
-    //     spanish: "Experiencias",
-    // },
+    },
+    products: {
+        portuguese: "Produtos",
+        english: "Products",
+        french: "Produits",
+        german: "Produkte",
+        italian: "Prodotti",
+        spanish: "Productos"
+    },
     // languages: {
     //     portuguese: "Idiomas",
     //     english: "Languages",
@@ -79,22 +55,6 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
     //     german: "Sprachen",
     //     italian: "Lingue",
     //     spanish: "Idiomas",
-    // },
-    // projects: {
-    //     portuguese: "Projetos",
-    //     english: "Projects",
-    //     french: "Projets",
-    //     german: "Projekte",
-    //     italian: "Progetti",
-    //     spanish: "Proyectos",
-    // },
-    // skills: {
-    //     portuguese: "Habilidades",
-    //     english: "Skills",
-    //     french: "Compétences",
-    //     german: "Fähigkeiten",
-    //     italian: "Abilità",
-    //     spanish: "Habilidades",
     // },
 };
 

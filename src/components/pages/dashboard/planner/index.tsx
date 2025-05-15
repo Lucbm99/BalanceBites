@@ -46,10 +46,8 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
             meals: [],
             consume: [],
             notes: [],
+            products: []
             // languages: [],
-            // projects: [],
-            // skills: [],
-            // socialMedias: [],
         },
         structure: {
             template: "ditto",
@@ -61,6 +59,7 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
                     { key: "meals" },
                     { key: "consume" },
                     { key: "notes" },
+                    { key: "products" },
                 ],
                 // sidebarSections: [{ key: "languages" }, { key: "skills" }],
                 sidebarSections: [],

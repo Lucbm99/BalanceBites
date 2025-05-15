@@ -23,7 +23,7 @@ export const POST = async (request: Request) => {
       const { goal, restriction, dailyMeals } = schema.parse(body);
       
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-pro-exp-03-25",
+        model: "gemini-2.0-flash-lite",
         contents: `
             Crie um conteúdo JSON que será utilizado para popular um planejamemto alimentar, alinhado com o objetivo fornecido pelo usuário: ${goal}, suas restrições: ${restriction} e pelo número de refeições diárias que ele terá no novo cardápio: ${dailyMeals}
                 : ""
@@ -33,16 +33,11 @@ export const POST = async (request: Request) => {
           
             Estrutura (Gere um JSON válido e bem formatado):
             {
-              summary: "Campo usado para sobre mim, usando metodologia tipo STAR, focando no objetivo pessoal que o usuário deseja alcançar. Não incluir palavras como "Tarefa", "Ação", "Resultado".",
+              summary: "Campo usado para sobre mim, usando metodologia tipo STAR, focando no objetivo pessoal que o usuário deseja alcançar. Não incluir palavras como "Tarefa", "Ação", "Resultado"., "Situação".",
               headline: "Headline curto em poucas palavras para ficar abaixo do nome do atleta. Normalmente é uma curta descrição do que ele necessita. Deixar somente a primeira letra do título maiúscula, tal como: "Plano alimentar estratégico para redução de massa magra".",
-              // skills: [
-                //   {
-                //     name: "Nome da habilidade mais relevante para a vaga.",
-                //     keywords: "Palavras-chave relacionadas a essa habilidade, separadas por vírgula, que ajudem a destacar a competência."
-                //     level: 0-5 (0 para básico, 5 para avançado),
-                //   },
-                //   ...
-                // ]
+              meal: "Um array de objetos com as refeições diárias que a pessoa fará, com base no número fornecido em ${dailyMeals}. Cada objeto deve conter uma chave 'meals' com uma refeição. Exemplo de formato: [{ meals: 'Café da manhã' }, { meals: 'Lanche da tarde' }].",
+              consume: "Um array de objetos com a quantidade de alimentos que a pessoa deverá consumir, em cada refeição, com a quantidade em gramas, fornecendo todos os nutrientes necessários. Cada objeto deve conter uma chave 'consume' com uma descrição clara e objetiva. Exemplo de formato: [{ consume: 'Almoço - 100g de arroz, 100g de feijão, 120g de proteína e 100g de legumes variados' }, { consume: 'Jantar - 100g de arroz, 100g de proteína e 100g de legumes' }].",
+              notes: "Um array de objetos com dicas relacionadas à dieta. Cada objeto deve conter uma chave 'notes' com uma frase clara e objetiva. Exemplo de formato: [{ notes: 'Evite frituras' }, { notes: 'Inclua vegetais verdes escuros' }].",
             }
           `,
       });
@@ -56,6 +51,7 @@ export const POST = async (request: Request) => {
       return Response.json({ data: json });
       
     } catch (error) {
+        console.log(error);
         return Response.json(
             { message: "Ocorreu um erro inesperado.", error},
             { status: 500 }

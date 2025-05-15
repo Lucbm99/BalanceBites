@@ -62,29 +62,6 @@ export const PlannerSectionContent = ({
   levelIndicatorVariant,
 }: PlannerSectionContentProps) => {
   switch (section.key) {
-    // case "objectives": //socialMedias
-    //   return (
-    //     <div className="flex flex-col gap-2 text-sm">
-    //       {content.objectives.map((objective, i) => (
-    //         <Link
-    //           withIcon={false}
-    //           iconColor={linkIconColor}
-    //           href={socialMedia.url}
-    //           key={`social-media-${i}`}
-    //         >
-    //           {socialMedia.icon ? (
-    //             <img
-    //               className="w-3 h-3 object-contain"
-    //               src={`https://cdn.simpleicons.org/${socialMedia.icon}`}
-    //             />
-    //           ) : (
-    //             <strong className="text-xs">{objective.objective}:</strong>
-    //           )}
-    //           {/* {socialMedia.username} */}
-    //         </Link>
-    //       ))}
-    //     </div>
-    //   );
     case "meals":
       return (
         <div className="flex flex-col gap-4">
@@ -95,23 +72,7 @@ export const PlannerSectionContent = ({
             >
               <div className="flex items-center justify-between font-bold">
                 <Element>{meal.meals}</Element>
-                {/* <Element>{experience.date}</Element> */}
               </div>
-              {/* <div className="flex items-center justify-between">
-                <Element>{experience.position}</Element>
-                <Element>{experience.location}</Element>
-              </div> */}
-              {/* {experience.website && (
-                <Link href={experience.website} iconColor={linkIconColor}>
-                  {experience.website}
-                </Link>
-              )}
-              {experience.summary && (
-                <div
-                  className="text-sm mt-0.5"
-                  dangerouslySetInnerHTML={{ __html: experience.summary }}
-                />
-              )} */}
             </div>
           ))}
         </div>
@@ -133,23 +94,7 @@ export const PlannerSectionContent = ({
             >
               <div className="flex items-center justify-between font-bold">
                 <Element>{consume_list.consume}</Element>
-                {/* <Element>{experience.date}</Element> */}
               </div>
-              {/* <div className="flex items-center justify-between">
-                <Element>{experience.position}</Element>
-                <Element>{experience.location}</Element>
-              </div> */}
-              {/* {experience.website && (
-                <Link href={experience.website} iconColor={linkIconColor}>
-                  {experience.website}
-                </Link>
-              )}
-              {experience.summary && (
-                <div
-                  className="text-sm mt-0.5"
-                  dangerouslySetInnerHTML={{ __html: experience.summary }}
-                />
-              )} */}
             </div>
           ))}
         </div>
@@ -164,49 +109,26 @@ export const PlannerSectionContent = ({
             >
               <div className="flex items-center justify-between font-bold">
                 <Element>{note.notes}</Element>
-                {/* <Element>{education.date}</Element> */}
               </div>
-              {/* <div className="flex items-center justify-between">
-                <Element>{education.degree}</Element>
-                <Element>{education.location}</Element>
-              </div>
-              {education.website && (
-                <Link iconColor={linkIconColor} href={education.website}>
-                  {education.website}
-                </Link>
-              )}
-              {education.summary && (
-                <div
-                  className="text-sm mt-0.5"
-                  dangerouslySetInnerHTML={{ __html: education.summary }}
-                />
-              )} */}
             </div>
           ))}
         </div>
       );
-    // case "skills":
-    //   return (
-    //     <div className="flex flex-col gap-4">
-    //       {content.skills.map((skill, i) => {
-    //         const level = skill.level ?? 0;
-
-    //         return (
-    //           <div key={`skill-${i}`} className="text-sm flex flex-col gap-1">
-    //             <Element className="font-bold -mb-1.5">{skill.name}</Element>
-    //             <Element>{skill.description}</Element>
-    //             <LevelIndicator
-    //               level={level}
-    //               levelsColor={levelsColor}
-    //               className="my-0.5"
-    //               variant={levelIndicatorVariant}
-    //             />
-    //             <Element className="text-xs">{skill.keywords}</Element>
-    //           </div>
-    //         );
-    //       })}
-    //     </div>
-    //   );
+    case "products":
+      return (
+        <div className="flex flex-col gap-4">
+          {content.products.map((product, i) => (
+            <div
+              key={`product-${i}`}
+              className="text-sm flex flex-col gap-0.5"
+            >
+              <div className="flex items-center justify-between font-bold">
+                <Element>{product.products}</Element>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
     // case "languages":
     //   return (
     //     <div className="flex flex-col gap-4">
@@ -224,60 +146,6 @@ export const PlannerSectionContent = ({
     //           </div>
     //         );
     //       })}
-    //     </div>
-    //   );
-    // case "certifications":
-    //   return (
-    //     <div className="flex flex-col gap-4">
-    //       {content.certifications.map((certification, i) => (
-    //         <div
-    //           key={`certification-${i}`}
-    //           className="text-sm flex flex-col gap-0.5"
-    //         >
-    //           <div className="flex items-center justify-between font-bold">
-    //             <Element>{certification.name}</Element>
-    //             <Element>{certification.date}</Element>
-    //           </div>
-    //           <Element>{certification.institution}</Element>
-    //           {certification.website && (
-    //             <Link href={certification.website}>
-    //               {certification.website}
-    //             </Link>
-    //           )}
-    //           {certification.summary && (
-    //             <div
-    //               className="text-sm mt-0.5"
-    //               dangerouslySetInnerHTML={{ __html: certification.summary }}
-    //             />
-    //           )}
-    //         </div>
-    //       ))}
-    //     </div>
-    //   );
-    // case "projects":
-    //   return (
-    //     <div className="flex flex-col gap-4">
-    //       {content.projects.map((project, i) => (
-    //         <div key={`project-${i}`} className="text-sm flex flex-col gap-0.5">
-    //           <div className="flex items-center justify-between font-bold">
-    //             <Element>{project.name}</Element>
-    //             <Element>{project.date}</Element>
-    //           </div>
-    //           <Element>{project.description}</Element>
-    //           {project.website && (
-    //             <Link iconColor={linkIconColor} href={project.website}>
-    //               {project.website}
-    //             </Link>
-    //           )}
-    //           {project.summary && (
-    //             <div
-    //               className="text-sm mt-0.5"
-    //               dangerouslySetInnerHTML={{ __html: project.summary }}
-    //             />
-    //           )}
-    //           <Element className="text-xs">{project.keywords}</Element>
-    //         </div>
-    //       ))}
     //     </div>
     //   );
     default:
