@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="w-full h-screen bg-gradient-to-tl from-muted flex flex-col md:justify-center p-6 overflow-x-hidden">
+    <main className="w-full h-screen flex flex-col md:justify-center p-6 overflow-x-hidden">
       <div className="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row gap-8 md:gap-12">
         <div>
           <Logo className="w-full max-w-[100px] mb-8" />
@@ -31,8 +31,8 @@ export default function Home() {
 
         <div className="flex-1 relative h-full">
           <Image
-            src="/images/dashboard.webp"
-            alt="Imagem do painel do ResumeCraft"
+            src="/images/dashboard_food.webp"
+            alt="Imagem do painel do BalanceBites"
             width={1200}
             height={800}
             className={cn(

@@ -18,6 +18,7 @@ type GenerationData = {
   meal: [{}];
   consume: [{}];
   notes: [{}];
+  products: [{}];
 };
 
 type GenerateFromMenuProps = {
@@ -42,6 +43,7 @@ export const GenerateFromMenu = ({
       setValue("content.meals", generation.meal);
       setValue("content.consume", generation.consume);
       setValue("content.notes", generation.notes);
+      setValue("content.products", generation.products);
 
       toast.success("Conteúdo gerado com sucesso!");
 

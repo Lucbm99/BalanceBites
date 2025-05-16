@@ -2,7 +2,7 @@ import Logo from "@/assets/logo.svg";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/lib/auth";
-import { Chrome, Github } from "lucide-react";
+import { Chrome } from "lucide-react";
 import Image from "next/image";
 
 type Providers = "github" | "google";
@@ -42,7 +42,7 @@ export default function LoginPage() {
                 </p>
 
                 <div className="flex flex-col gap-4 mt-6">
-                    <Button
+                    {/* <Button
                         variant="outline"
                         className="w-full gap-2"
                         type="submit"
@@ -51,7 +51,7 @@ export default function LoginPage() {
                     >
                         <Github size={20} />
                         Entrar com GitHub
-                    </Button>
+                    </Button> */}
                     <Button
                         className="w-full gap-2"
                         type="submit"

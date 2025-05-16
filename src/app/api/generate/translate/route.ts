@@ -22,9 +22,9 @@ export const POST = async (request: Request) => {
     const { content, language } = schema.parse(body);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-pro-exp-03-25",
+      model: "gemini-2.0-flash-lite",
       contents: `
-          Baseado no JSON abaixo, traduza todos os valores dos campos para a linguagem ${language}, não importa qual linguagem o valor está escrito originalmente. Também aprimore o texto para parecer mais claro e profissional, pois será usado em currículos.
+          Baseado no JSON abaixo, traduza todos os valores dos campos para a linguagem ${language}, não importa qual linguagem o valor está escrito originalmente. Também aprimore o texto para parecer mais claro e profissional, pois será usado em planejamentos alimentares.
           Também corrija erros gramaticais e de concordância, se necessário.
           Mantenha dados específicos pessoais, links, emails, telefones, etc. como estão, apenas altere o texto dos campos.
 
@@ -45,10 +45,12 @@ export const POST = async (request: Request) => {
     await decrementUserCredits(1);
 
     return Response.json({ data: json });
+
   } catch (error) {
-    return Response.json(
-      { message: "Ocorreu um erro inesperado.", error },
-      { status: 500 }
-    );
+      console.log(error);
+      return Response.json(
+        { message: "Ocorreu um erro inesperado.", error },
+        { status: 500 }
+      );
   }
 };

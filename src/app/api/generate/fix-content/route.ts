@@ -21,9 +21,9 @@ export const POST = async (request: Request) => {
     const { content } = schema.parse(body);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-pro-preview-03-25",
+      model: "gemini-2.0-flash-lite",
       contents: `
-          Baseado no JSON abaixo, avalie todos os campos alterando o conteúdo de todos eles, aprimorando o texto para parecer mais claro e profissional, pois será usado em currículos.
+          Baseado no JSON abaixo, avalie todos os campos alterando o conteúdo de todos eles, aprimorando o texto para parecer mais claro e profissional, pois será usado em planejamentos alimentares.
           Também corrija erros gramaticais e de concordância, se necessário.
           Mantenha dados pessoais, links, emails, etc. como estão, apenas altere o texto dos campos.
 
@@ -42,10 +42,12 @@ export const POST = async (request: Request) => {
     await decrementUserCredits(1);
 
     return Response.json({ data: json });
+
   } catch (error) {
-    return Response.json(
-      { message: "Ocorreu um erro inesperado.", error },
-      { status: 500 }
-    );
+      console.log(error);
+      return Response.json(
+        { message: "Ocorreu um erro inesperado.", error },
+        { status: 500 }
+      );
   }
 };
