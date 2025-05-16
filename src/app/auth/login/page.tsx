@@ -17,12 +17,12 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="grid grid-cols-[1.5fr, 1fr] h-screen">
+        <div className="grid grid-cols-[1.5fr,1fr] h-screen">
             <aside>
                 <Image
-                    width={100}
-                    height={100}
-                    src="/images/auth-bg.webp"
+                    width={1000}
+                    height={800}
+                    src="/images/bg_food.webp"
                     alt="Escritório com vários currículos espalhados por todas as mesas"
                     className="w-full h-full object-cover"
                     quality={100}
