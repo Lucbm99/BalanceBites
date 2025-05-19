@@ -36,7 +36,7 @@ export const NewPlannerDialog = (props: BaseDialogProps) => {
     return (
         <Dialog
             {...props}
-            title="Criar novo plano alimentar"
+            title="Criar plano alimentar"
             description="Para começar, escolha um título para seu plano alimentar"
             content={
                 <FormProvider {...methods}>
