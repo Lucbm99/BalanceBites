@@ -46,8 +46,7 @@ export const PlannerPage = ({ title, initialData, user}: PlannerPageProps) => {
             meals: [],
             consume: [],
             notes: [],
-            products: []
-            // languages: [],
+            products: [],
         },
         structure: {
             template: "ditto",

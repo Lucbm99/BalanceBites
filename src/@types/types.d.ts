@@ -33,12 +33,6 @@ type PlannerShoppingListData = {
     products: string;
 };
 
-// type PlannerLanguageData = {
-//     name: string;
-//     description: string;
-//     level: number;
-// };
-
 type PlannerContentData = {
     image: PlannerImageData;
     infos: PlannerInfosData;
@@ -47,9 +41,6 @@ type PlannerContentData = {
     consume: Partial<PlannerConsumeData>[];
     notes: Partial<PlannerNotesData>[];
     products: Partial<PlannerShoppingListData>[];
-
-    //ALTERAR ESSES DADOS EM OUTROS ARQUIVOS
-    // languages: Partial<PlannerLanguageData>[];
 }
 
 type PlannerLayoutSection = {
@@ -80,7 +71,6 @@ type PlannerSections =
     | "consume"
     | "notes"
     | "products";
-    // | "languages";
 
 type PlannerTemplates = "eevee" | "onix" | "jynx" | "ditto";
 

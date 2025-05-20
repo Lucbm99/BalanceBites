@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { BellRing, Dumbbell, Mail, MapPin, MoveUp, Phone } from "lucide-react";
+import { Activity, BellRing, Dumbbell, Mail, MapPin, MoveUp, Phone } from "lucide-react";
 
 type BasicInfosProps = {
   infos: PlannerInfosData;
@@ -7,6 +7,38 @@ type BasicInfosProps = {
 };
 
 export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
+  const weightIMC = parseFloat(infos.weight.replace(',', '.'));
+  const heightIMC = parseFloat(infos.height.replace(',', '.'));
+  let resultadoIMC;
+  let classificacao = "";
+
+
+  if (!isNaN(weightIMC) && !isNaN(heightIMC) && heightIMC > 0) {
+
+    const calculoIMC = ((weightIMC) / (Math.pow(heightIMC, 2)));
+
+    resultadoIMC = calculoIMC;
+
+    if (resultadoIMC < 18.5) {
+      classificacao = "Abaixo do peso";
+    } else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
+      classificacao = "Peso normal";
+    } else if (resultadoIMC >= 25 && resultadoIMC <= 29.9) {
+      classificacao = "Sobrepeso";
+    } else if (resultadoIMC >= 30 && resultadoIMC <= 34.9) {
+      classificacao = "Obesidade grau 1";
+    } else if (resultadoIMC >= 35 && resultadoIMC <= 39.9) {
+      classificacao = "Obesidade grau 2";
+    } else {
+      classificacao = "Obesidade grau 3";
+    }
+
+  } else {
+
+    console.log("Valores inválidos para peso ou altura");
+
+  }
+
   const basicInfos = [
     {
       icon: MapPin,
@@ -31,14 +63,14 @@ export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
       value: `${infos.height} m`,
     },
     {
+      icon: Activity,
+      value: `Seu IMC é igual a: ${resultadoIMC?.toFixed(2)} - ${classificacao}`
+    },
+    {
       icon: BellRing,
       value: `LEMBRETE: BEBA, NO MÍNIMO, 2L DE ÁGUA POR DIA.`,
     },
-    // {
-    //   icon: Link,
-    //   value: infos.website,
-    //   href: infos.website,
-    // },
+    
   ].filter((info) => !!info.value);
 
   if (basicInfos.length === 0) return null;

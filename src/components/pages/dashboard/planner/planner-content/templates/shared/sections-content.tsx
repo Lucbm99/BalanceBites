@@ -129,25 +129,6 @@ export const PlannerSectionContent = ({
           ))}
         </div>
       );
-    // case "languages":
-    //   return (
-    //     <div className="flex flex-col gap-4">
-    //       {content.languages.map((language, i) => {
-    //         const level = language.level ?? 0;
-
-    //         return (
-    //           <div
-    //             key={`language-${i}`}
-    //             className="text-sm flex flex-col gap-1"
-    //           >
-    //             <Element className="font-bold -mb-1.5">{language.name}</Element>
-    //             <Element>{language.description}</Element>
-    //             <LevelIndicator level={level} levelsColor={levelsColor} variant={levelIndicatorVariant} />
-    //           </div>
-    //         );
-    //       })}
-    //     </div>
-    //   );
     default:
       return null;
   }

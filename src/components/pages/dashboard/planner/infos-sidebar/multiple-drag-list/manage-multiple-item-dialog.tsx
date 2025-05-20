@@ -15,7 +15,7 @@ import { MultipleDragItemData, PlannerArrayKeys } from ".";
 type ManageMultipleItemDialogProps = BaseDialogProps & {
     data: MultipleDragItemData;
     setOpen: (open: boolean) => void;
-    initialData?: any;
+    initialData: any;
 }
 
 type FormConfig<T> = {
@@ -56,7 +56,7 @@ const formConfig: FormConfigObject = {
         {
             label: "Observações",
             key: "notes",
-            placeholder: "não como pão, não como feijão...",
+            placeholder: "Não como pão, não como feijão...",
             required: true,
             fieldType: "text",
         },
@@ -65,28 +65,11 @@ const formConfig: FormConfigObject = {
         {
             label: "Produtos que compro no mercado",
             key: "products",
-            placeholder: "não como pão, não como feijão...",
+            placeholder: "Lentilha, frutas, legumes...",
             required: true,
             fieldType: "text",
         },
     ],
-    // languages: [
-    //     {
-    //         label: "Nome",
-    //         key: "name",
-    //         required: true,
-    //     },
-    //     {
-    //         label: "Descrição",
-    //         key: "description",
-    //     },
-    //     {
-    //         label: "Nível",
-    //         key: "level",
-    //         fieldType: "slider",
-    //         fullWidth: true,
-    //     },
-    // ],
 };
 
 export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: ManageMultipleItemDialogProps) => {
@@ -211,7 +194,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
         if (isEditing) {
             const updatedItems = currentFieldValue.map((item: any) => {
                 if (item.id === initialData.id) {
-                    return formData
+                    return formData;
                 }
 
                 return item;
@@ -228,6 +211,7 @@ export const ManageMultipleItemDialog = ({ data, open, setOpen, initialData }: M
             ...formData,
             id: uuid()
         }])
+
         setOpen(false);
         toast.success("Item adicionado com sucesso");
     };

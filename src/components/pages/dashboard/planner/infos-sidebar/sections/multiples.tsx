@@ -41,13 +41,6 @@ export const MultiplesSections = () => {
             titleKey: "products",
             descriptionKey: "products",
         },
-        // {
-        //     formKey: "languages",
-        //     title: "Idiomas",
-        //     icon: Languages,
-        //     titleKey: "name",
-        //     descriptionKey: "description",
-        // },
     ];
 
     const onEdit = (section: MultipleDragItemData, index: number) => {

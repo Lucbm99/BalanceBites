@@ -48,14 +48,6 @@ const labels: Record<PlannerSections, Record<PlannerLanguages, string>> = {
         italian: "Lista della spesa",
         spanish: "Lista de compras"
     },
-    // languages: {
-    //     portuguese: "Idiomas",
-    //     english: "Languages",
-    //     french: "Langues",
-    //     german: "Sprachen",
-    //     italian: "Lingue",
-    //     spanish: "Idiomas",
-    // },
 };
 
 export const sectionLabels = labels;

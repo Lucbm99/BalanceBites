@@ -56,3 +56,7 @@ export const isValidJSON = (json: string) => {
 export const removeJSONMarkers = (json: string) => {
   return json.replace(/^```json\s*|\s*```$/g, "");
 };
+
+export function generateIdRandom() {
+  return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
+}
