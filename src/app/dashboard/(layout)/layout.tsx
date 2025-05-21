@@ -13,8 +13,8 @@ export default async function DashboardLayout({ children }: DashboardLayoutProps
     const session = await auth();
     
     return (
-        <div className="w-full h-screen overflow-hidden grid grid-cols-[300px,1fr]">
-            <aside className="w-full h-full flex flex-col items-center border-r border-muted">
+        <div className="flex flex-col lg:flex-row h-screen">
+            <aside className="w-full lg:w-64 h-auto lg:h-full flex flex-col items-center border-b lg:border-b-0 lg:border-r border-muted">
                 <div className="w-full p-6 border-b border-muted">
                     <Logo className="max-w-[100px] mx-auto" />
                 </div>

@@ -17,14 +17,14 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="grid grid-cols-[1.5fr,1fr] h-screen">
+        <div className="none md:grid md:grid-cols-[1.5fr,1fr] md:h-screen">
             <aside>
                 <Image
                     width={1000}
                     height={800}
                     src="/images/bg_food.webp"
-                    alt="Escritório com vários currículos espalhados por todas as mesas"
-                    className="w-full h-full object-cover"
+                    alt="Foto de uma mulher de pele escura cortando frutas em cima de uma mesa"
+                    className="hidden md:block md:w-full md:h-full md:object-cover"
                     quality={100}
                 />
             </aside>
