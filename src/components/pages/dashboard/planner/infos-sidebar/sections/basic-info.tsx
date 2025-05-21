@@ -8,7 +8,7 @@ export const BasicInfoSection = () => {
         <div>
             <SectionTitle title="Informações básicas" icon={UserRound} />
         
-            <div className="grid grid-cols-2 gap-4 mt-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 w-full">
                 <div className="col-span-full w-full flex gap-3 items-end">
                     <InputField
                         label="Foto"

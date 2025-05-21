@@ -48,9 +48,9 @@ export const MultipleDragList = ({
 
             <div className="mt-4 flex flex-col">
                 {isEmpty && (
-                    <Button variant="outline" className="w-full gap-2" onClick={onAdd}>
-                        <Plus size={16} />
-                        Adicionar item
+                    <Button variant="outline" className="w-full gap-2 px-3 py-2 text-sm sm:text-base h-10 sm:h-11" onClick={onAdd}>
+                        <Plus size={16} className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="hidden lg:block">Adicionar item</span>
                     </Button>
                 )}
                 
@@ -81,7 +81,7 @@ export const MultipleDragList = ({
                                                         ref={provided.innerRef}
                                                         {...provided.draggableProps}
                                                         className={cn(
-                                                            "h-16 w-full bg-muted/50 flex",
+                                                            "sm:gap-4 lg:h-16 w-full bg-muted/50 flex",
                                                             !isLastItem && "border-b border-muted"
                                                         )}
                                                     >
@@ -96,7 +96,7 @@ export const MultipleDragList = ({
                                                                 className="flex-1 flex flex-col justify-center px-3 cursor-pointer hover:bg-muted/80 transition-all"
                                                                 onClick={() => onEdit(index)}
                                                             >
-                                                                <p className="text-sm font-title font-bold">
+                                                                <p className="text-sm sm:text-base font-title font-bold break-words leading-snug sm:leading-normal">
                                                                     {field[titleKey]}
                                                                 </p>
                                                                 {/* <p className="text-xs text-muted-foreground">
@@ -117,9 +117,9 @@ export const MultipleDragList = ({
                 )}
 
                 {!isEmpty && (
-                    <Button variant="outline" className="w-max gap-2 ml-auto mt-4" onClick={onAdd}>
+                    <Button variant="outline" className="w-full gap-2 px-3 py-2 text-sm sm:text-base h-10 sm:h-11" onClick={onAdd}>
                         <Plus size={16} />
-                        Adicionar item
+                        <p className="hidden lg:inline">Adicionar item</p>
                     </Button>
                 )}
             </div>

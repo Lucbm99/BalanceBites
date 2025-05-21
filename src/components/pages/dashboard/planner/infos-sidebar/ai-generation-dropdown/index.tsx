@@ -68,9 +68,9 @@ export const AIGenerationDropdown = () => {
         <>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button className="gap-2 text-xs px-2.5 py-1 h-9">
-                        <Bot size={20} />
-                        Inteligência Artificial
+                    <Button className="gap-2 px-2 py-1 h-9 text-xs sm:text-sm sm:px-3">
+                        <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="hidden lg:text-base">Inteligência Artificial</span>
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent sideOffset={10} align="start">

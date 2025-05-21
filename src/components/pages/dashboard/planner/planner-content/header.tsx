@@ -17,8 +17,8 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
     return (
         <header
             className={cn(
-                "absolute w-full left-0 top-0 z-10 p-2 bg-background border-b border-muted",
-                "flex items-center justify-between gap-2"
+                "absolute w-full left-0 top-0 z-10 p-2 sm:p-4 bg-background border-b border-muted",
+                "flex flex-wrap items-center justify-between gap-2 sm:gap-4"
             )}
         >
             <div className="flex items-center gap-2">
