@@ -7,9 +7,10 @@ type BasicInfosProps = {
 };
 
 export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
+  
   const weightIMC = parseFloat(infos.weight.replace(',', '.'));
   const heightIMC = parseFloat(infos.height.replace(',', '.'));
-  let resultadoIMC;
+  let resultadoIMC: number | null = null;
   let classificacao = "";
 
 
@@ -20,16 +21,27 @@ export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
     resultadoIMC = calculoIMC;
 
     if (resultadoIMC < 18.5) {
+
       classificacao = "Abaixo do peso";
+
     } else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
+
       classificacao = "Peso normal";
+
     } else if (resultadoIMC >= 25 && resultadoIMC <= 29.9) {
+
       classificacao = "Sobrepeso";
+
     } else if (resultadoIMC >= 30 && resultadoIMC <= 34.9) {
+
       classificacao = "Obesidade grau 1";
+
     } else if (resultadoIMC >= 35 && resultadoIMC <= 39.9) {
+
       classificacao = "Obesidade grau 2";
+
     } else {
+      
       classificacao = "Obesidade grau 3";
     }
 
@@ -64,7 +76,7 @@ export const BasicInfos = ({ infos, className }: BasicInfosProps) => {
     },
     {
       icon: Activity,
-      value: `Seu IMC é igual a: ${resultadoIMC?.toFixed(2)} - ${classificacao}`
+      value: resultadoIMC ? `Seu IMC é igual a: ${resultadoIMC?.toFixed(2)} - ${classificacao}` : "Para calcular o IMC, digite os valores de peso e altura",
     },
     {
       icon: BellRing,

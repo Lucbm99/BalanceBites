@@ -15,7 +15,7 @@ export const MultiplesSections = () => {
     const sectionsKeys: MultipleDragItemData[] = [
         {
             formKey: "meals",
-            title: "Minhas refeições diárias",
+            title: "Minhas refeições",
             icon: Utensils,
             titleKey: "meals",
             descriptionKey: "meals",
