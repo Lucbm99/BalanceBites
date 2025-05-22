@@ -77,7 +77,7 @@ export const LayoutDragList = ({ title, fields }: LayoutDragListProps) => {
                                 className="flex items-center gap-1 bg-foreground p-1 rounded"
                             >
                                 <GripVertical className="w-4 h-4 min-w-4 text-background" />
-                                <p className="text-accent text-xs font-semibold">
+                                <p className="text-accent text-xs sm:text-sm md:text-base font-semibold break-words whitespace-normal">
                                     {labels[field.key][language]}
                                 </p>
                             </div>
