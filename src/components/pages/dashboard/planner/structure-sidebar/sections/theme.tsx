@@ -52,7 +52,7 @@ export const ThemeSection = () => {
                 control={control}
                 name="structure.colorTheme"
                 render={({ field }) => (
-                    <div className="grid grid-cols-7 gap-4 mt-4">
+                    <div className="grid sm:grid-cols-1 md:grid-cols-4 lg:grid grid-cols-7 gap-3 mt-2">
                         {colorKeys.map(colorKey => {
                             const isSelected = field.value === colorKey;
                             
