@@ -13,12 +13,12 @@ type PlannerInfosData = {
     height: string;
 }
 
-//Sessão alimentos
+//Sessão refeições
 type PlannerMealsData = {
     meals: string;
 };
 
-// Sessão restrições alimentares
+// Sessão alimentos consumidos
 type PlannerConsumeData = {
     consume: string;
 };
