@@ -7,8 +7,11 @@ Com base no curso do Gabriel Borges, cujo foi desenvolvida a plataforma ResumeCr
 Nela, você consegue: 
 
 ✅ Inserir informações sobre seu estilo de vida, tais como estilo alimentar, alergias, metas nutricionais, rotina e dados físicos;
+
 ✅ Gerar cardápios automaticamente, com sugestões e possibilidade de edição;
+
 ✅ Ter sugestões de receitas e dicas de como alcançar sua meta;
+
 ✅ Exportar seu plano em PDF estilizado para impressão, pronto para acompanhar sua rotina.
 
 Seja você vegano, intolerante à lactose, buscando ganhar massa ou apenas querendo manter uma alimentação mais equilibrada, o Balance Bites entende suas necessidades e monta um cardápio sob medida.
